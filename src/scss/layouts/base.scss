@@ -1,0 +1,22 @@
+html {
+  width: 100%;
+}
+
+body {
+  background: var(--color_white);
+  color: var(--color_black);
+  font-family: $font_serif;
+  font-size: 16px;
+  font-style: italic;
+  // font-variation-settings: 'ital' 1;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: none;
+}
+
