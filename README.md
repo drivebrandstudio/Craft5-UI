@@ -1,3 +1,7 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Clone the template
+
+NPM install
+
+Update apiFetch and index.tsx fetch with the route of the headless database
