@@ -1,10 +1,10 @@
-const siteURL = "REPLACE WITH CORRECT URL";
+const siteURL = "https://craft5.drivedev.net";
 export const apiFetch = async (query: any) =>
   await fetch(siteURL + "/api", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      // "Authorization": "REPLACE_IF_API_LOCKED"
+      Authorization: "Bearer lUhTkyUZ0JTWbDcxw4AelTEytFFiJeuW"
     },
     body: JSON.stringify({
       query,
