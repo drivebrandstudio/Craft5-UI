@@ -20,7 +20,7 @@ const getTemplate = (navItem: apiRouteType) => {
     case "home":
       return <Home />;
     default:
-      <div>{navItem.title} coming soon</div>;
+      return <div>{navItem.title} coming soon</div>;
   }
 };
 
@@ -103,8 +103,6 @@ const App = () => {
       });
   }, []);
 
-  console.log(apiRoutes);
-
   const router = createBrowserRouter([
     {
       path: "/",
@@ -130,7 +128,7 @@ const App = () => {
       children: [
         // Home route
 
-        { path: "/home", element: <Home /> },
+        { path: "home", element: <Home /> },
         { path: "search", element: <Search /> },
 
         // top level routes
@@ -138,15 +136,16 @@ const App = () => {
           .filter((route) => (route.level = 1))
           ?.map((navItem: apiRouteType) => ({
             path: navItem.slug,
+            element: navItem.children.length ? null : getTemplate(navItem),
 
             // secondary level routes
             children: navItem.children?.map((child) => ({
-              path: `${child.uri}`,
+              path: `/${navItem.slug}/${child.slug}`,
               element: getTemplate(child),
 
               // tertiary level routes
               children: child.children?.map((superchild) => ({
-                path: `${superchild.uri}`,
+                path: `/${navItem.slug}/${child.slug}/${superchild.slug}`,
                 element: getTemplate(superchild),
               })),
             })),
@@ -160,8 +159,11 @@ const App = () => {
 
   if (error) return <Error error={error} />;
 
+  console.log(router);
+
   return <RouterProvider router={router} />;
 };
+
 ReactDOM.createRoot(document.querySelector("#root")!).render(
   <React.StrictMode>
     <ThemeProvider storageKey="vite-ui-theme">

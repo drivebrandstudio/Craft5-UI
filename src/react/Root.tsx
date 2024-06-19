@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
 
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet, useNavigate, useLocation } from "react-router-dom";
 import { apiRouteType } from "./types/api";
 import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
 
 const Root = ({ apiRoutes }: { apiRoutes: apiRouteType[] }) => {
   const navigate = useNavigate();
+  const location = useLocation();
   useEffect(() => {
-    navigate("/home");
+    if (location.pathname! == "/") {
+      navigate("/home");
+    }
   }, []);
 
   return (

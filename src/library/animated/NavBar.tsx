@@ -368,7 +368,7 @@ const NavBar = ({ routes }: { routes: apiRouteType[] }) => {
                   </div>
                 )}
                 <div className="text-sm grid grid-cols-3 md:grid-cols-4 gap-5 p-4">
-                  {route.children.map(checkDescendants)}
+                  {checkDescendants(route)}
                 </div>
               </div>
             </MenuItem>
