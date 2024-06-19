@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import Loading from "../components/Loading.js";
+import Loading from "../../library/animated/Loading.js";
 
 import { apiFetch } from "../utils/api.ts";
 
