@@ -54,30 +54,29 @@ const App = () => {
                             id
                             }
                             children {
-    level
-                          slug
-                          uri
-                          typeHandle
-                          sectionHandle
-                          title
-                          id
-                          parent {
-                            id
-                            }
-                            children {
-    level
-                          slug
-                          uri
-                          typeHandle
-                          sectionHandle
-                          title
-                          id
-                          parent {
-                            id
-                            }
-                            children {
-       id
-     }     }     }
+                                level
+                                slug
+                                uri
+                                typeHandle
+                                sectionHandle
+                                title
+                                id
+                                parent {
+                                  id
+                                }
+                                children {
+                                    level
+                                     slug
+                                     uri
+                                     typeHandle
+                                     sectionHandle
+                                     title
+                                     id
+                                     parent {
+                                      id
+                                    }
+                                   }
+                               }
                      }
                 }`,
         }),
