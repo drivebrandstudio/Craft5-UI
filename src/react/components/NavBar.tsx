@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { cn } from "../utils/cn";
-import { ModeToggle } from "../../ui/mode-toggle";
+import { ModeToggle } from "../../library/primatives/mode-toggle";
 import { CardBody, CardContainer, CardItem } from "./3dCard";
 
 const transition = {

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { ThemeProvider } from "../ui/theme-provider.js";
+import { ThemeProvider } from "../library/primatives/theme-provider.js";
 
 import Root from "./pages/Root";
 import Home from "./pages/Home";
