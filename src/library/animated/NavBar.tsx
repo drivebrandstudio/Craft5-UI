@@ -2,7 +2,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
-import { cn } from "../../react/utils/cn";
+import { cn } from "../utils/cn";
 import { ModeToggle } from "../primatives/mode-toggle";
 import { CardBody, CardContainer, CardItem } from "./3dCard";
 import { apiRouteType } from "../../react/types/api";

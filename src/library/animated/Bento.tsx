@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../react/utils/cn";
+import { cn } from "../utils/cn";
 import { Link } from "react-router-dom";
 
 import "lazysizes";

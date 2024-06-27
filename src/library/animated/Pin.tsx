@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { cn } from "../../react/utils/cn";
+import { cn } from "../utils/cn";
 import { Link } from "react-router-dom";
 
 export const PinContainer = ({

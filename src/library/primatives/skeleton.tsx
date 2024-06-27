@@ -1,4 +1,4 @@
-import { cn } from "../../react/utils/cn";
+import { cn } from "../utils/cn";
 
 function Skeleton({
   className,

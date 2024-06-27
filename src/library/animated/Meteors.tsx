@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../../react/utils/cn";
+import { cn } from "../utils/cn";
 
 export const Meteors = ({
   number,

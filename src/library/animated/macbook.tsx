@@ -2,7 +2,7 @@
 import React, { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 
-import { cn } from "../../react/utils/cn";
+import { cn } from "../utils/cn";
 import { AnimatedTooltip } from "./ToolTip";
 
 const MacbookScroll = ({

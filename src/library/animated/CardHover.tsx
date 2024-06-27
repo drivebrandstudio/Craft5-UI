@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { cn } from "../../react/utils/cn";
+import { cn } from "../utils/cn";
 import { Link } from "react-router-dom";
 
 export const HoverEffect = ({
