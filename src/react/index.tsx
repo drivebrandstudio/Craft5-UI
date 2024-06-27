@@ -33,12 +33,12 @@ const App = () => {
   useEffect(() => {
     // Fetch routes to build out the rest of the website
     async function getRoutes() {
-      return await fetch("https://craft5.drivedev.net/api", {
+      return await fetch("" + '/api', {
         //TODO: Move route to env file
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer lUhTkyUZ0JTWbDcxw4AelTEytFFiJeuW",
+          Authorization: "", // Add to .htaccess if Authorization header is being stripped
         },
         body: JSON.stringify({
           query: `{
@@ -127,7 +127,7 @@ const App = () => {
       children: [
         // Home route
 
-        { path: "home", element: <Home /> },
+        { index: true, element: <Home /> },
         { path: "search", element: <Search /> },
 
         // top level routes
@@ -157,9 +157,7 @@ const App = () => {
   if (loading) return <Loading />;
 
   if (error) return <Error error={error} />;
-
-  console.log(router);
-
+  
   return <RouterProvider router={router} />;
 };
 

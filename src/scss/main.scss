@@ -8,6 +8,7 @@
 
 // Files that (typically) style <html> <body> <main> and other components used to layout the page
 @import "./layouts/base.scss";
+@import "./loading.scss";
 
 // Files that style individual 'Lego Bricks' of the site
 // @import "./components/footer.scss";
@@ -54,7 +55,7 @@
   }
 
   .dark {
-    --background: 22 22 22 1;
+    --background: 229, 84%, 5%;
     --foreground: 210 40% 98%;
 
     --card: 222.2 84% 4.9%;
@@ -72,8 +73,8 @@
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 0 0 100%;
+    --accent-foreground: 210 100% 50%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;

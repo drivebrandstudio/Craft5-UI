@@ -45,6 +45,11 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        borderRadius: {
+          lg: "var(--radius)",
+          md: "calc(var(--radius) - 2px)",
+          sm: "calc(var(--radius) - 4px)",
+        },
       },
       animation: {
         first: "moveVertical 30s ease infinite",
@@ -58,6 +63,8 @@ module.exports = {
         spotlight: "spotlight 2s ease .75s 1 forwards",
         // Aurora background
         aurora: "aurora 60s linear infinite",
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
       keyframes: {
         scroll: {
@@ -124,12 +131,21 @@ module.exports = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
       },
     },
   },
   plugins: [
     addVariablesForColors,
-    setUpUtilities
+    setUpUtilities,
+    require("tailwindcss-animate")
   ]
 };
 
