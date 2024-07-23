@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   console.log("run app root");
 
   const client = cmsClient(context?.preview, token);
-  const data = await client.request(
+  const seoReq = await client.request(
     gql`
       {
         seoEntries: entries {
@@ -81,21 +81,21 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const nav = await client.request(gql`
     {
-      navEntries: entries(level: 1, showInMenu: true) {
+      navEntries: entries(level: 1) {
         level
         slug
         uri
         typeHandle
         sectionHandle
         title
-        descendants(showInMenu: true) {
+        descendants {
           level
           slug
           uri
           typeHandle
           sectionHandle
           title
-          descendants(showInMenu: true) {
+          descendants {
             level
             slug
             uri
@@ -107,9 +107,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
       }
     }
   `);
-  const { seo, ...pageProps } = data.seoEntries.find((item) => !!item.id);
+  const { seo, ...pageProps } = seoReq.seoEntries.find((item) => !!item.id);
 
-  console.log("HELLO");
+  console.log("_app template");
+  console.log(seo);
+  
   return {
     props: {
       seo,

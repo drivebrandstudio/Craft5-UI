@@ -31,7 +31,7 @@ export const getStaticProps: GetStaticProps = async ({
   //     notFound: true,
   //   };
   // }
-    console.log("...page getpreview");
+  console.log("...page getpreview");
 
   // if we are in preview mode, get the token from the previewData
   const { token, typeHandle } = getPreviewToken(
@@ -52,34 +52,7 @@ export const getStaticProps: GetStaticProps = async ({
     : await getEntryType("pages.data", uri);
   const type = entryType || "pages";
   const query = pageQueries.pages;
-  const nav = await client.request(gql`
-    {
-      navEntries: entries(level: 1, showInMenu: true) {
-        level
-        slug
-        uri
-        typeHandle
-        sectionHandle
-        title
-        descendants(showInMenu: true) {
-          level
-          slug
-          uri
-          typeHandle
-          sectionHandle
-          title
-          descendants(showInMenu: true) {
-            level
-            slug
-            uri
-            typeHandle
-            sectionHandle
-            title
-          }
-        }
-      }
-    }
-  `);
+
   let entry;
   try {
     entry = await client.request(query, {
@@ -92,8 +65,6 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      seo: parseSEO(entry.entries[0]?.seo),
-      routes: nav.navEntries,
       ...entry,
       entryType,
     },

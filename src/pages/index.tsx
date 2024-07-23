@@ -27,43 +27,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const data = await client.request(HomeEntryQuery, {
     uid: context?.previewData?.entryUid || null,
   });
-  const nav = await client.request(gql`
-    {
-      navEntries: entries(level: 1, showInMenu: true) {
-        level
-        slug
-        uri
-        typeHandle
-        sectionHandle
-        title
-        descendants(showInMenu: true) {
-          level
-          slug
-          uri
-          typeHandle
-          sectionHandle
-          title
-          descendants(showInMenu: true) {
-            level
-            slug
-            uri
-            typeHandle
-            sectionHandle
-            title
-          }
-        }
-      }
-    }
-  `);
-  const { seo, ...pageProps } = data.seoEntries.find((item) => !!item.id);
+ 
   console.log("INDEX HELLO");
   console.log(data.homeEntry);
   return {
     props: {
-      seo,
-      routes: nav.navEntries,
       data: data.homeEntry,
-      ...pageProps,
     },
   };
 };

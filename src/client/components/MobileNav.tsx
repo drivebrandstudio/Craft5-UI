@@ -1,6 +1,6 @@
 import React from "react";
 
-const MobileNav = () => 
+const MobileNav = () => (
   <header className="block md:hidden fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600">
     <div className="grid h-full max-w-lg grid-cols-5 mx-auto font-medium">
       <button
@@ -79,7 +79,7 @@ const MobileNav = () =>
         </span>
       </button>
     </div>
-  </header>;
-};
+  </header>
+);
 
 export default MobileNav;
