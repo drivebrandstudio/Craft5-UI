@@ -4,11 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "build-lint": "tsc && vite build",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
     "@accessible360/accessible-slick": "^1.0.1",
@@ -21,6 +19,7 @@
     "@radix-ui/react-switch": "^1.1.0",
     "@react-three/drei": "^9.102.3",
     "@react-three/fiber": "^8.16.0",
+    "@svgr/webpack": "^5.5.0",
     "@tsparticles/engine": "^3.3.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.3.0",
@@ -31,13 +30,18 @@
     "clsx": "^2.1.1",
     "dompurify": "^3.0.11",
     "framer-motion": "^11.0.25",
+    "graphql-request": "^3.4.0",
     "gsap": "^3.8.0",
     "html-react-parser": "^5.1.10",
+    "html-webpack-plugin": "5",
     "jquery": "^3.7.0",
     "lazysizes": "^5.3.2",
     "lucide-react": "^0.378.0",
     "mini-svg-data-uri": "^1.4.4",
+    "next": "^14.2.4",
+    "next-themes": "^0.3.0",
     "prettier-plugin-twig-melody": "^0.4.6",
+    "ramda": "^0.30.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.22.3",
@@ -50,7 +54,9 @@
     "vaul": "^0.9.1",
     "video.js": "^8.10.0",
     "vite-bundle-visualizer": "^1.1.0",
-    "vite-plugin-restart": "^0.4.0"
+    "vite-plugin-restart": "^0.4.0",
+    "webpack": "5.50.0",
+    "webpack-dev-server": "3"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.0.2",
