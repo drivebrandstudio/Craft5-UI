@@ -21,72 +21,70 @@ React + NextJS Front End, Back End CraftCMS project.
 
 
 ## Steps (start with the backend)
-### Backend
-```bash
-mkdir [FOLDER_NAME]
-```
+### Backend (20 steps if you take it slow)
+1. ```bash
+   mkdir [FOLDER_NAME]
+   ```
+1. ```bash
+    cd [FOLDER_NAME]
+    ```
+1. ```bash
+    git clone git@github.com:drivebrandstudio/Craft5-UI.git ./
+    ```
+1. ```bash
+    rm -r -f .git
+    ```
 
-```bash
-cd [FOLDER_NAME]
-```
+1. ```bash
+    git init .
+      ```
 
-```bash
-git clone git@github.com:drivebrandstudio/Craft5-UI.git ./
-```
+1.  ```bash
+    git add .
+      ```
 
-```bash
-rm -r -f .git
-```
+1.  ```bash
+    git remote add origin <URL_OF_EMPTY_GITHUB_REPO>
+    ```    
 
-```bash
-git init .
-```
+1.  ```bash
+    git commit -m 'First Commit'
+    ```
 
-```bash
-git add .
-```
+1.  ```bash
+    git push origin main
+    ```
+> [!TIP]
+> You can skip to the UI section if you don't care about local stanup.
+10. Remove .example from the .env file
 
-```bash
-git remote add origin <URL_OF_EMPTY_GITHUB_REPO>
-```    
+1.  ```bash
+    composer install
+    ```
 
-```bash
-git commit -m 'First Commit'
-```
+1.  ```bash
+    ddev start
+    ```
 
-```bash
-git push origin main
-```
+1. ```bash
+    ddev exec php craft setup/security-key
+    ```
 
-- Remove .example from the .env file
+1.  ```bash
+    ddev exec php craft setup/app-id
+    ```
 
-```bash
-composer install
-```
+1.  ```bash
+    ddev import-db --file=db.sql.gz
+    ```
 
-```bash
-ddev start
-```
-
-```bash
-ddev exec php craft setup/security-key
-```
-
-```bash
-ddev exec php craft setup/app-id
-```
-
-```bash
-ddev import-db --file=db.sql.gz
-```
-
-- Add "headlessMode" => true to config > general.php
-- Add "api" => "graphql/api" to config > routes.php
-- Navigate to https://craft-starter.ddev.site/access
-    - u: cc_admin
-    - p: letmein
-- Graphql > schemas > create new > label Private
-- Graphql > tokens > create new > apply to Private schema and copy the token to notepad (will need later)
+1. Add "headlessMode" => true to config > general.php
+1. Add "api" => "graphql/api" to config > routes.php
+1. Navigate to https://craft-starter.ddev.site/access
+  - u: cc_admin
+  - p: letmein
+19. Graphql > schemas > create new > label Private
+1. Graphql > tokens > create new > apply to Private schema and copy the token to notepad (will need later)
 
 ### UI
 ```bash
@@ -124,13 +122,38 @@ git commit -m 'First Commit'
 ```bash
 git push origin main
 ```
-
+> [!TIP]
+> You can skip to the Hosting section if you don't care about local stanup.
 - Remove .example from .env
 - Paste in the db URL and CMS token (remove "Authorization: Bearer")
 - NPM install
 - Use TODOTree or Search for TODO and finish all
 - npm run dev
 
+## Hosting the 2 projects
+- Purchase a Digital Ocean droplet
+- Connect the droplet to RunCloud
+- Create 2 system users and generate a password. Store in hosting&domains
+- Create a DB user, then a DB in runcloud.
+- Create 2 webapps, one for the ui and one for the db
+  - Prefer www version  
+  - Put the deploy keys in each runcloud project  
+- Using the Digital Ocean console or SSH (vscode or other) into the DB server
+  - run `gunzip db.sql.gz`
+  - run `mysql -u <db_user_name> -p <db_name> < db.sql`
+- Add to DNS records
+  - if domain 
+    - A record @ server_ip 600s
+    - CName www url_name.com. 1hour
+  - if subdomain 
+    - A record url_name server_ip 1hour
+    - CName *.url_name url_name.com. 1hour
+- Add SSL record
+- Add .htaccess file do server DB project
+- Add NGINX config to server ui runcloud webapp settings
+- Create the graphql schema and token
+- Fill in the .env file in the server ui project
+- Run `pm2 start npm --name "<give_reasonable_name>" -- start`
 
 ## Environment Variables
 
