@@ -151,6 +151,9 @@ git push origin main
 - Add SSL record
 - Add .htaccess file do server DB project
 - Add NGINX config to server ui runcloud webapp settings
+  - Add a proxy config and uncomment the proxy_redirect and the last 3 lines
+  - Create a custom root definition
+     - add_header Content-Security-Policy "frame-ancestors 'self' <https://yourbackendwebsite.com>"; 
 - Create the graphql schema and token
 - Fill in the .env file in the server ui project
 - Run `pm2 start npm --name "<give_reasonable_name>" -- start`
