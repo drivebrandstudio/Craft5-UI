@@ -29,7 +29,7 @@ React + NextJS Front End, Back End CraftCMS project.
     cd [FOLDER_NAME]
     ```
 1. ```bash
-    git clone git@github.com:drivebrandstudio/Craft5-UI.git ./
+    git clone git@github.com:drivebrandstudio/craft5-starter.git ./
     ```
 1. ```bash
     rm -r -f .git
@@ -96,7 +96,7 @@ cd [FOLDER_NAME]
 ```
 
 ```bash
-git clone git@github.com:drivebrandstudio/craft5-starter.git ./
+git clone git@github.com:drivebrandstudio/Craft5-UI.git ./
 ```
 
 ```bash
