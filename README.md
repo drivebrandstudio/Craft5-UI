@@ -138,7 +138,7 @@ git push origin main
 - Create 2 webapps, one for the ui and one for the db
   - Prefer www version  
   - Put the deploy keys in each runcloud project
-  - Add `/home/app_user_name` to the end of open_basedir
+  - Add `:/home/app_user_name` to the end of open_basedir
 - Using the Digital Ocean console or SSH (vscode or other) into the DB server
   - run `gunzip db.sql.gz`
   - run `mysql -u <db_user_name> -p <db_name> < db.sql`
