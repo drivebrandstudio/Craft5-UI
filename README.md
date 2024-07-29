@@ -96,7 +96,7 @@ cd [FOLDER_NAME]
 ```
 
 ```bash
-git clone git@github.com:drivebrandstudio/Craft5-UI.git ./
+git clone git@github.com:drivebrandstudio/craft5-starter.git ./
 ```
 
 ```bash
