@@ -18,6 +18,7 @@ React + NextJS Front End, Back End CraftCMS project.
 
 - Light/dark mode toggle
 - Live previews (🏗🚧)
+- Custom CraftCMS on save method to cause the UI app to refresh the data when an entry is saved
 
 
 ## Steps (start with the backend)
