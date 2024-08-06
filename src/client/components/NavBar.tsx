@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useMemo, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import React, { useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { useRouter, useSearchParams } from "next/navigation";
 
 import { CardBody, CardContainer, CardItem } from "./library/3dCard";
 import { apiRouteType } from "../../server/gql/types/navItems";
@@ -19,6 +19,8 @@ import {
 import { PlaceholdersAndVanishInput } from "./library/Searchbar";
 import { ModeToggle } from "./library/ui/mode-toggle";
 import MobileNav from "./MobileNav";
+import { TextRevealCard } from "./library/TextReveal";
+import { LightBoard } from "./library/Lightboard";
 // import { debounce } from "../utils/debounce";
 
 const transition = {
@@ -179,6 +181,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   return (
     <Link
       {...rest}
+      prefetch={false}
       className="text-neutral-700 dark:text-neutral-200 hover:text-black "
     >
       {children}
@@ -186,56 +189,35 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   );
 };
 
-const NavBar = ({ routes }: { routes: apiRouteType[] }) => {
+const NavBar = ({ routes, announcement = true }: { routes: apiRouteType[] }) => {
   const [selected, setSelected] = useState(null);
   const [hovered, setHovered] = useState(null);
 
-  const [openSearch, setOpenSearch] = useState(false);
-  const router = useRouter();
-
-  // Debounce example, but this is in the wrong spot
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   debounce(() => console.log(e.target.value), 300)();
-  // };
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>, value: any) => {
-    e?.preventDefault();
-
-    router.push(`/search?${value}`);
-
-    setOpenSearch(false);
-  };
-
-  // TODO: Replace these
-  const placeholders = useMemo(
-    () => [
-      "Searching for something?",
-      "Find all your hopes and dreams here...",
-    ],
-    []
-  );
-
   const checkDescendants = (route: any) => {
-    return route.descendants.map((descendant: any) => {
-      if (!!descendant.descendants && !!descendant.descendants.length) {
+    return route.descendants.map((routeDescendant: any) => {
+      if (
+        !!routeDescendant.descendants &&
+        !!routeDescendant.descendants.length
+      ) {
         return (
-          <div key={descendant.slug}>
+          <div key={routeDescendant.slug}>
             <p>
-              {descendant.title}
+              {routeDescendant.title}
               <span className={""}>&gt;</span>
             </p>
-            {checkDescendants(descendant)}
+            {routeDescendant.descendants.map(checkDescendants)}
           </div>
         );
       }
 
       // Only render routes directly below the header route
-      return route.level + 1 === descendant.level ? (
+      return route.level + 1 === routeDescendant.level ? (
         <HoveredLink
-          href={`/${descendant.uri}`}
-          key={descendant.slug}
-          onMouseEnter={() => setHovered(descendant)}
+          href={`/${routeDescendant.uri}`}
+          key={routeDescendant.slug}
+          onMouseEnter={() => setHovered(routeDescendant)}
         >
-          {descendant.title}
+          {routeDescendant.title}
         </HoveredLink>
       ) : null;
     });
@@ -246,102 +228,174 @@ const NavBar = ({ routes }: { routes: apiRouteType[] }) => {
       <MobileNav />
       <header className="hidden md:block">
         <Menu setActive={setSelected}>
-          <Link
-            href="/"
-            className="px-2 ml-auto"
-            onMouseEnter={() => setSelected(null)}
-          >
-            <motion.p
-              transition={{ duration: 0.3 }}
-              className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white"
-            >
-              Home
-            </motion.p>
-          </Link>
           {routes
-            ?.filter((route) => route.level === 1 && route.descendants.length)
-            ?.map((route) => (
-              <MenuItem
-                to={route.slug}
-                item={route.title}
-                setActive={setSelected}
-                active={selected}
-                uuid={route.slug}
-              >
-                <div className="flex">
-                  {hovered?.headerImage?.[0] ? (
-                    <img src={hovered?.headerImage[0].url} />
-                  ) : (
-                    <div
-                      role="status"
-                      className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
-                    >
-                      <div className="flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
-                        <svg
-                          className="w-10 h-10 text-gray-200 dark:text-gray-600"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="currentColor"
-                          viewBox="0 0 20 18"
-                        >
-                          <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
-                        </svg>
+            ?.filter(
+              (route) => route.level === 1 || route.typeHandle === "home"
+            )
+            ?.map((route) => {
+              return !!route.children.length ||
+                route.typeHandle === "newsListing" ? (
+                <MenuItem
+                  to={route.slug}
+                  item={route.title}
+                  setActive={setSelected}
+                  active={selected}
+                  uuid={route.slug}
+                >
+                  <div className="flex">
+                    {hovered?.headerImage?.[0] ? (
+                      <img src={hovered?.headerImage[0].url} />
+                    ) : (
+                      <div
+                        role="status"
+                        className="space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center"
+                      >
+                        <div className="flex items-center justify-center w-full h-48 bg-gray-300 rounded sm:w-96 dark:bg-gray-700">
+                          <svg
+                            className="w-10 h-10 text-gray-200 dark:text-gray-600"
+                            aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                            viewBox="0 0 20 18"
+                          >
+                            <path d="M18 0H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3Zm4.376 10.481A1 1 0 0 1 16 15H4a1 1 0 0 1-.895-1.447l3.5-7A1 1 0 0 1 7.468 6a.965.965 0 0 1 .9.5l2.775 4.757 1.546-1.887a1 1 0 0 1 1.618.1l2.541 4a1 1 0 0 1 .028 1.011Z" />
+                          </svg>
+                        </div>
                       </div>
+                    )}
+                    <div className="text-sm grid grid-cols-3 md:grid-cols-4 gap-5 p-4">
+                      {route.typeHandle === "newsListing"
+                        ? routes
+                            .filter((route) => route.typeHandle === "news")
+                            .map((item) => (
+                              <HoveredLink
+                                href={`/${item.uri}`}
+                                key={item.slug}
+                                onMouseEnter={() => setHovered(item)}
+                              >
+                                {item.title}
+                              </HoveredLink>
+                            ))
+                        : route.children.map((item) => (
+                            <HoveredLink
+                              href={`/${item.uri}`}
+                              key={item.slug}
+                              onMouseEnter={() => setHovered(item)}
+                            >
+                              {item.title}
+                            </HoveredLink>
+                          ))}{" "}
                     </div>
-                  )}
-                  <div className="text-sm grid grid-cols-3 md:grid-cols-4 gap-5 p-4">
-                    {route.descendants.map(checkDescendants)}
                   </div>
-                </div>
-              </MenuItem>
-            ))}
-
-          <div onMouseEnter={() => setSelected(null)}>
+                </MenuItem>
+              ) : (
+                <Link
+                  prefetch={false}
+                  href={route.typeHandle === "home" ? "/" : `/${route.uri}`}
+                  key={route.slug}
+                  onMouseEnter={() => {
+                    setHovered(null);
+                    setSelected(null);
+                  }}
+                  className="mx-2"
+                >
+                  {route.title}
+                </Link>
+              );
+            })}
+          <Link
+            prefetch={false}
+            href={"https://www.admin.example.drivedev.net/access"}
+            key={"admin"}
+            onMouseEnter={() => {
+              setHovered(null);
+              setSelected(null);
+            }}
+            className="mx-2"
+          >
+            Admin
+          </Link>
+          <Notice />
+          <div
+            onMouseEnter={() => {
+              setHovered(null);
+              setSelected(null);
+            }}
+          >
             <ModeToggle />
           </div>
-
-          <Dialog open={openSearch} onOpenChange={setOpenSearch}>
-            <DialogTrigger asChild>
-              <motion.div
-                onMouseEnter={() => setSelected(null)}
-                transition={{ duration: 0.3 }}
-                className="cursor-pointer text-black hover:opacity-[0.9] dark:text-white ml-auto"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="size-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                  />
-                </svg>
-              </motion.div>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Search</DialogTitle>
-                <DialogDescription>
-                  Contact support@drivebrandstudio.com if you couldn't find what
-                  you were looking for without the search!
-                </DialogDescription>
-              </DialogHeader>
-              <PlaceholdersAndVanishInput
-                placeholders={placeholders}
-                // onChange={handleChange}
-                onSubmit={onSubmit}
-              />
-            </DialogContent>
-          </Dialog>
         </Menu>
       </header>
+      {/* <LightBoard
+        text={"A message for the viewer. what happens if this gets really long though?"}
+        rows={15}
+        lightSize={2}
+        gap={0}
+        font="default"
+        updateInterval={1500}
+        colors={{
+          background: "#1a1a1a",
+          textDim: "#ff9999",
+          drawLine: "#ffff99",
+          textBright: "#99ffff",
+        }}
+      /> */}
     </div>
   );
 };
 
 export default NavBar;
+
+
+const Marquee = () => {
+  return (
+    <div className="relative flex overflow-x-hidden">
+      <div className="py-12 animate-marquee whitespace-nowrap">
+        <span className="text-4xl mx-4">Marquee Item 1</span>
+        <span className="text-4xl mx-4">Marquee Item 2</span>
+        <span className="text-4xl mx-4">Marquee Item 3</span>
+        <span className="text-4xl mx-4">Marquee Item 4</span>
+        <span className="text-4xl mx-4">Marquee Item 5</span>
+      </div>
+
+      <div className="absolute top-0 py-12 animate-marquee2 whitespace-nowrap">
+        <span className="text-4xl mx-4">Marquee Item 1</span>
+        <span className="text-4xl mx-4">Marquee Item 2</span>
+        <span className="text-4xl mx-4">Marquee Item 3</span>
+        <span className="text-4xl mx-4">Marquee Item 4</span>
+        <span className="text-4xl mx-4">Marquee Item 5</span>
+      </div>
+    </div>
+  );
+};
+
+
+
+function Notice() {
+  return (
+    <>
+      <a
+        href="#"
+        className="relative inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded bg-emerald-500"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="size-6"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0"
+          />
+        </svg>
+        <span className="absolute inline-flex items-center justify-center gap-1 p-1 text-sm text-white bg-pink-500 border-2 border-white rounded-full -top-1 -right-1">
+          <span className="sr-only"> New Alerts </span>
+        </span>
+      </a>
+    </>
+  );
+}
