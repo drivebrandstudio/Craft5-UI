@@ -95,3 +95,9 @@
     @apply bg-background text-foreground;
   }
 }
+
+#__next {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}

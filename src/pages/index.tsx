@@ -37,7 +37,7 @@ export const getStaticProps: GetStaticProps = async ({
 
   return {
     props: {
-      seo: seoReq.entry.seo,
+      seo: seoReq.entry?.seo || null,
       routes: nav.navEntries,
       data: data.homeEntry,
     },

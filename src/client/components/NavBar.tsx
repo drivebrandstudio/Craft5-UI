@@ -1,26 +1,25 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
 
 import { CardBody, CardContainer, CardItem } from "./library/3dCard";
 import { apiRouteType } from "../../server/gql/types/navItems";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "./library/ui/dialog";
-import { PlaceholdersAndVanishInput } from "./library/Searchbar";
 import { ModeToggle } from "./library/ui/mode-toggle";
 import MobileNav from "./MobileNav";
-import { TextRevealCard } from "./library/TextReveal";
-import { LightBoard } from "./library/Lightboard";
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "./library/ui/drawer";
+import { Button } from "./library/Button";
+
 // import { debounce } from "../utils/debounce";
 
 const transition = {
@@ -99,7 +98,7 @@ export const Menu = ({
     <div className="relative w-full border border-transparent dark:bg-gray-800 dark:border-white/[0.2] bg-white shadow-input flex justify-center">
       <div
         onMouseLeave={() => setActive(null)} // resets the state
-        className="flex justify-center items-center px-1 lg:w-full"
+        className="flex justify-center items-center px-1 lg:w-full my-4"
       >
         {children}
       </div>
@@ -189,7 +188,12 @@ export const HoveredLink = ({ children, ...rest }: any) => {
   );
 };
 
-const NavBar = ({ routes, announcement = true }: { routes: apiRouteType[] }) => {
+const NavBar = ({
+  routes,
+  announcement = true,
+}: {
+  routes: apiRouteType[];
+}) => {
   const [selected, setSelected] = useState(null);
   const [hovered, setHovered] = useState(null);
 
@@ -346,7 +350,6 @@ const NavBar = ({ routes, announcement = true }: { routes: apiRouteType[] }) => 
 
 export default NavBar;
 
-
 const Marquee = () => {
   return (
     <div className="relative flex overflow-x-hidden">
@@ -369,15 +372,10 @@ const Marquee = () => {
   );
 };
 
-
-
 function Notice() {
   return (
-    <>
-      <a
-        href="#"
-        className="relative inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded bg-emerald-500"
-      >
+    <Drawer noBodyStyles>
+      <DrawerTrigger className="ml-auto mr-2 relative inline-flex items-center justify-center w-10 h-10 text-lg text-white rounded bg-emerald-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -395,7 +393,20 @@ function Notice() {
         <span className="absolute inline-flex items-center justify-center gap-1 p-1 text-sm text-white bg-pink-500 border-2 border-white rounded-full -top-1 -right-1">
           <span className="sr-only"> New Alerts </span>
         </span>
-      </a>
-    </>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader>
+          <DrawerTitle>Announcements</DrawerTitle>
+        </DrawerHeader>
+
+        <div className="p-4 pb-0">test announcment</div>
+
+        <DrawerFooter>
+          <DrawerClose>
+            <Button variant="outline">Close</Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   );
 }
