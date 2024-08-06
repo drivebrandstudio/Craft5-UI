@@ -1,11 +1,11 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import cmsClient from "../server/cmsClient";
-import getPreviewToken from "../server/getPreviewToken";
-import parseSEO from "../server/parseSEO";
 import dynamic from "next/dynamic";
-import { gql } from "graphql-request";
+
+import cmsClient from "@/server/cmsClient";
 import { HomeEntryQuery } from "@/server/gql/home.gql";
+import { pageQueries } from "@/server/gql/page.gql";
+import { NavQuery } from "@/server/gql/nav.gql";
 
 export interface IPageProps {
   [k: string]: any;
@@ -19,19 +19,26 @@ function Index(props: IPageProps): JSX.Element {
 
 export default Index;
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  console.log("index token");
-  console.log(context);
-
-  const client = cmsClient(context?.preview, context?.previewData?.token);
+export const getStaticProps: GetStaticProps = async ({
+  params,
+  preview,
+  previewData,
+}) => {
+  const client = cmsClient(preview, previewData?.token);
   const data = await client.request(HomeEntryQuery, {
-    uid: context?.previewData?.entryUid || null,
+    uri: "__home__",
   });
- 
-  console.log("INDEX HELLO");
-  console.log(data.homeEntry);
+
+  const seoReq = await client.request(pageQueries.landingPages, {
+    uri: "__home__",
+  });
+
+  const nav = await client.request(NavQuery);
+
   return {
     props: {
+      seo: seoReq.entry.seo,
+      routes: nav.navEntries,
       data: data.homeEntry,
     },
   };

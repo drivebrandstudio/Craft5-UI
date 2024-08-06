@@ -9,9 +9,6 @@ export default async function handler(
 ) {
   const { token, entryUid } = req.query
 
-  console.log('first preview log')
-  console.log(req.query)
-
   // if (typeof token !== 'string') {
   //   res.status(401).json({ message: 'Token missing' })
   //   return
@@ -42,20 +39,18 @@ export default async function handler(
     return
   }
 
-  console.log('setPreviewData here')
-  console.log(token)
 
   const {
-    entry: { uri },
+    entry: { uri, typeHandle },
   } = data
 
-  const isHome = uri === 'winter'
+  const isHome = uri === '__home__' || uri === 'home';
 
   const location = `/${isHome ? '' : uri}`
   res.setPreviewData({
     token,
     entryUid,
-    typeHandle: data?.entry?.typeHandle,
+    typeHandle,
   }).redirect(location).end('Preview Mode Enabled')
 
 

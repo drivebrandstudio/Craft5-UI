@@ -84,6 +84,14 @@ export const UserGuideQuery = gql`
   		}
 	}
 `
+export const StandardHeroQuery = gql`
+		query StandardHeroQuery($uri: [String]) { 
+         	entry(uri: $uri) {
+         	 	id
+         	 	uri
+  		}
+	}
+`
 
 export const pageQueries = {
 	pages: PagesPagesEntryQuery,
@@ -94,4 +102,5 @@ export const pageQueries = {
 	newsCategories: NewsCategoryQuery,
 	contactPage: NewsCategoryQuery,
 	userGuide: UserGuideQuery,
+	standardHero: StandardHeroQuery,
 }

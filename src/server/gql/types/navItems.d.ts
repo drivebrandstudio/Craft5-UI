@@ -1,4 +1,4 @@
-export interface apiRouteType {
+export interface ApiRouteType {
     sectionHandle: string;
     typeHandle: string;
     title: string;

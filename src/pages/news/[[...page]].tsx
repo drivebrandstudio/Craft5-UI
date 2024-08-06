@@ -1,22 +1,16 @@
 import React from "react";
-import { GetStaticProps, GetStaticPaths } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
+
+import getPreviewToken from "@/server/getPreviewToken";
 import cmsClient from "@/server/cmsClient";
-import getPreviewToken from "../server/getPreviewToken";
-import getEntryType from "../server/getEntryType";
-import writeDataToDisk from "../server/writeDataToDisk";
-import { PagePathQuery, pageQueries } from "../server/gql/page.gql";
+import { PagePathQuery, pageQueries } from "@/server/gql/page.gql";
+import writeDataToDisk from "@/server/writeDataToDisk";
 import { gql } from "graphql-request";
-import InsidePage from "@/client/layouts/InsidePage";
-import Home from "@/client/layouts/Home";
+import News from "@/client/layouts/News";
 import { useRouter } from "next/router";
 import { NavQuery } from "@/server/gql/nav.gql";
 
-export interface IPageProps {
-  type: "post" | "pagination";
-  [k: string]: any;
-}
-
-function Page(props: IPageProps): JSX.Element {
+export default function Page() {
   const router = useRouter();
 
   // If the page is not yet generated, this will be displayed
@@ -25,27 +19,8 @@ function Page(props: IPageProps): JSX.Element {
     return <div>Loading...</div>;
   }
 
-  switch (props.entryType) {
-    case "home":
-      return <Home />;
-    case "news":
-      return <div>news</div>;
-    case "newsListing":
-      return <div>news listing</div>;
-    case "newsCategories":
-      return <div>news Categories</div>;
-    case "contactPage":
-      return <div>contact page</div>;
-    case "userGuide":
-      return <div>user guide</div>;
-    case "pages":
-      return <InsidePage />;
-    default:
-      return <div>Unknown template</div>;
-  }
+  return <News />;
 }
-
-export default Page;
 
 export const getStaticProps: GetStaticProps = async ({
   params,
@@ -77,15 +52,15 @@ export const getStaticProps: GetStaticProps = async ({
         }
       }
     `,
-    { uri: params.page.join("/") }
+    { uri: params?.page?.join("/") }
   );
 
-  const page = params.page as string[];
-  const uri = page.join("/");
+  const page = params?.page as string[];
+  const uri = page?.join("/");
 
   // if it's preview mode, use the typeHandle passed from the preview api
   // if we're building/dev mode, find the typeHandle from the data written to file
-  const type = entryType?.entry?.typeHandle || "pages";
+  const type = entryType.entry?.typeHandle || "news";
   const query = pageQueries[type];
 
   let entry;
@@ -99,7 +74,7 @@ export const getStaticProps: GetStaticProps = async ({
   }
 
   const seoReq = await client.request(pageQueries.landingPages, {
-    uri: params.page.join("/"),
+    uri: params?.page?.join("/"),
   });
 
   const nav = await client.request(NavQuery);
@@ -107,9 +82,9 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: {
       ...entry,
-      seo: seoReq.entry.seo,
+      seo: seoReq.entry?.seo || null,
       routes: nav.navEntries,
-      entryType: entryType.entry?.typeHandle || "pages",
+      entryType: entryType.entry?.typeHandle || "news",
     },
   };
 };
@@ -128,16 +103,19 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths = entries
     .filter(
-      (entry) => entry.uri && entry.uri !== "home" && entry.uri !== "__home__"
+      (entry) =>
+        entry.uri &&
+        entry.uri !== "home" &&
+        entry.uri !== "__home__" &&
+        entry.uri.includes("news")
     )
-    .filter((entry) => !entry.uri.includes("news"))
     .map((entry) => ({
       params: { page: entry.uri.split("/") },
     }));
 
   await writeDataToDisk(
     JSON.stringify(
-      entries.filter((entry) => entry.uri && !entry.uri.includes("news"))
+      entries.filter((entry) => entry.uri && entry.uri.includes("news"))
     ),
     "pages.data"
   );
