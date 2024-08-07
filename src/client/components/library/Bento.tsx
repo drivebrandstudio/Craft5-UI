@@ -4,7 +4,7 @@ import { Button } from "./Button";
 import { ReactNode } from "react";
 
 import "lazysizes";
-import FuzzyOverlay from "./animated/FuzzyOverlay";
+import FuzzyOverlay from "./FuzzyOverlay";
 import Link from "next/link";
 
 export const BentoGrid = ({

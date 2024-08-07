@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useAnimate } from "framer-motion";
-import { useApiFetch } from "../../../utils/api";
+import { useApiFetch } from "../../utils/api";
 
 export const MouseImageTrail = ({
   children,
