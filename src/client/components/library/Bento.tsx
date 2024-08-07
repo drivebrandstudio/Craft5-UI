@@ -1,6 +1,6 @@
 import React from "react";
 import { cn } from "../../utils/cn";
-import { Button } from "./Button";
+import { Button } from "../atoms/Button";
 import { ReactNode } from "react";
 
 import "lazysizes";

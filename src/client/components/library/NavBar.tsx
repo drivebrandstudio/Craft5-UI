@@ -4,11 +4,11 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-import { CardBody, CardContainer, CardItem } from "./library/3dCard";
-import { apiRouteType } from "../../server/gql/types/navItems";
+import { CardBody, CardContainer, CardItem } from "./3dCard";
+import { apiRouteType } from "../../../server/gql/types/navItems";
 
-import { ModeToggle } from "./library/ui/mode-toggle";
-import MobileNav from "./MobileNav";
+import { ModeToggle } from "../atoms/mode-toggle";
+import MobileNav from "../MobileNav";
 import {
   Drawer,
   DrawerClose,
@@ -17,8 +17,8 @@ import {
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
-} from "./library/ui/drawer";
-import { Button } from "./library/Button";
+} from "../atoms/drawer";
+import { Button } from "../atoms/Button";
 
 // import { debounce } from "../utils/debounce";
 

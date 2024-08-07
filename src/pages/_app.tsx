@@ -2,9 +2,9 @@ import React from "react";
 import type { AppProps } from "next/app";
 
 import Seo from "@/client/components/Seo";
-import { ThemeProvider } from "@/client/components/library/ui/theme-provider";
+import { ThemeProvider } from "@/client/components/atoms/theme-provider";
 import Footer from "@/client/components/Footer";
-import Nav from "@/client/components/NavBar";
+import Nav from "@/client/components/library/NavBar";
 
 import "../client/scss/main.scss";
 

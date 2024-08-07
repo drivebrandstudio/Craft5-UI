@@ -1,11 +1,10 @@
 "use client";
 
-import { Button } from "@/client/components/library/Button";
-import { Switch } from "@/client/components/library/ui/switch";
+import React, { useState } from "react";
+
+import { Switch } from "@/client/components/atoms/switch";
 import { cn } from "@/client/utils/cn";
 import { motion } from "framer-motion";
-import { Loader } from "lucide-react";
-import { useState } from "react";
 
 type Interval = "month" | "year";
 
