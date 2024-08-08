@@ -59,7 +59,7 @@ export const ScrollHome = () => {
 };
 
 // Scroll Home Components Start
-const SECTION_HEIGHT = 2700;
+const SECTION_HEIGHT = 1500;
 
 const Hero = () => {
 	return (
@@ -132,7 +132,7 @@ const ParallaxImages = () => {
 				src="https://images.unsplash.com/photo-1541185933-ef5d8ed016c2?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 				alt="Orbiting satellite"
 				start={-200}
-				end={200}
+				end={0}
 				className="ml-auto w-1/3"
 			/>
 			<ParallaxImg
