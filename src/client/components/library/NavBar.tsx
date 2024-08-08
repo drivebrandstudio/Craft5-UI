@@ -429,7 +429,6 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 
 	const router = useRouter();
 
-	console.log(router.pathname);
 	return (
 		<header className="border-b-1 relative z-20 w-full border-b border-slate-200 bg-white/90 shadow-lg shadow-slate-700/5 after:absolute after:left-0 after:top-full after:z-10 after:block after:h-px after:w-full after:bg-slate-200 lg:border-slate-200 lg:backdrop-blur-sm lg:after:hidden">
 			<div className="relative mx-auto max-w-full px-6 lg:max-w-5xl xl:max-w-7xl 2xl:max-w-[96rem]">
@@ -566,4 +565,21 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 	);
 };
 
+export const NavBar3 = () => {
+	return (
+		<nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-3 text-white">
+			<div>logo</div>
+			<button
+				// onClick={() => {
+				//   document.getElementById("launch-schedule")?.scrollIntoView({
+				//     behavior: "smooth",
+				//   });
+				// }}
+				className="flex items-center gap-1 text-xs text-zinc-400"
+			>
+				Nav Button
+			</button>
+		</nav>
+	);
+};
 export default NavBar;

@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 
 import { ThemeProvider } from "@/client/components/atoms/theme-provider";
 import Footer from "@/client/components/Footer";
-import Nav, { NavBar2 } from "@/client/components/library/NavBar";
+import Nav, { NavBar2, NavBar3 } from "@/client/components/library/NavBar";
 import Seo from "@/client/components/Seo";
 
 import "../client/scss/main.scss";
@@ -24,7 +24,8 @@ export default function AppRoot({
 			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
 				{/* <Nav routes={routes} /> */}
 				{/* <NavBar2 routes={routes} /> */}
-				<ResizeNavBar />
+				<NavBar3 />
+				{/* <ResizeNavBar /> */}
 				<Component {...props} />
 				<Footer />
 			</ThemeProvider>

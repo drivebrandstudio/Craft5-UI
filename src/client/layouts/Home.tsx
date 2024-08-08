@@ -8,10 +8,14 @@ import {
 	useScroll,
 	useTransform,
 } from "framer-motion";
-import { ReactLenis } from "lenis/dist/lenis-react";
+import { ReactLenis } from "lenis/react";
+
+import CtaContent from "../components/library/CtaContent";
+import GridContent from "../components/library/GridContent";
+import VideoHero from "../components/library/VideoHero";
 
 function Home() {
-	return <SmoothScrollHero />;
+	return <PlaceholderHome />;
 }
 
 export default Home;
@@ -20,9 +24,9 @@ const PlaceholderHome = () => {
 	return (
 		<div className="dark:text-white dark:bg-zinc-800">
 			{/* Hero component */}
-			<div className="h-screen text-center"> hero component </div>
+			<VideoHero />
 			{/* Content area */}
-			<div className="h-[60vh] text-center">content</div>
+			<GridContent />
 		</div>
 	);
 };
@@ -40,7 +44,9 @@ export const SmoothScrollHero = () => {
 				}}
 			>
 				<Hero />
-				<div className="h-screen">body content</div>
+				<div className="h-screen">
+					<CtaContent />
+				</div>
 			</ReactLenis>
 		</div>
 	);
