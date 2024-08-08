@@ -559,6 +559,7 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 								);
 							})}
 					</ul>
+					<ModeToggle />
 				</nav>
 			</div>
 		</header>
@@ -579,6 +580,7 @@ export const NavBar3 = () => {
 			>
 				Nav Button
 			</button>
+			<ModeToggle />
 		</nav>
 	);
 };

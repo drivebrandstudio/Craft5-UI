@@ -9,7 +9,9 @@ import Seo from "@/client/components/Seo";
 
 import "../client/scss/main.scss";
 
+import CenteredFooter from "@/client/components/CenteredFooter";
 import ResizeNavBar from "@/client/components/ResizeNavbar";
+import SplitFooter from "@/client/components/SplitFooter";
 
 export default function AppRoot({
 	Component,
@@ -22,12 +24,22 @@ export default function AppRoot({
 			<Seo {...seo} />
 
 			<ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+				{/* NAVIGATION COMPONENTS start */}
 				{/* <Nav routes={routes} /> */}
 				{/* <NavBar2 routes={routes} /> */}
-				<NavBar3 />
-				{/* <ResizeNavBar /> */}
+				{/* <NavBar3 /> */}
+				<ResizeNavBar />
+				{/* NAVIGATION COMPONENTS end */}
+
+				{/* SRC > CLIENT > LAYOUTS start */}
 				<Component {...props} />
-				<Footer />
+				{/* SRC > CLIENT > LAYOUTS end */}
+
+				{/* FOOTER COMPONENTS start */}
+				{/* <Footer /> */}
+				{/* <CenteredFooter /> */}
+				<SplitFooter />
+				{/* FOOTER COMPONENTS end */}
 			</ThemeProvider>
 		</>
 	);

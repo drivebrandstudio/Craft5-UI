@@ -16,6 +16,8 @@ import { IoIosClose, IoIosMenu } from "react-icons/io";
 import { Button } from "@/client/components/atoms/Button";
 import { cn } from "@/client/utils/cn";
 
+import { ModeToggle } from "./atoms/mode-toggle";
+
 type Props = {
 	navItems: {
 		link: string;
@@ -82,6 +84,7 @@ const DesktopNavbar = ({ navItems }: Props) => {
 				</Button>
 				<Button>Book a demo</Button>
 			</div>
+			<ModeToggle />
 		</motion.div>
 	);
 };
@@ -217,6 +220,7 @@ const MobileNavbar = ({ navItems }: any) => {
 						>
 							Register
 						</Button>
+						<ModeToggle />
 					</div>
 				</div>
 			)}
@@ -245,8 +249,9 @@ export function NavBarItem({
 		<Link
 			href={href}
 			className={cn(
-				"flex items-center justify-center  text-sm leading-[110%] px-4 py-2 rounded-md  hover:bg-neutral-800 hover:text-white/80 text-white hover:shadow-[0px_1px_0px_0px_#FFFFFF20_inset] transition duration-200",
-				(active || pathname?.includes(href)) && "bg-transparent text-white",
+				"flex items-center justify-center  text-sm leading-[110%] px-4 py-2 rounded-md  hover:bg-neutral-800 hover:text-white/80 dark:text-white hover:shadow-[0px_1px_0px_0px_#FFFFFF20_inset] transition duration-200",
+				(active || pathname?.includes(href)) &&
+					"bg-transparent dark:text-white",
 				className
 			)}
 			target={target}

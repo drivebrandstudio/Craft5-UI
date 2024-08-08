@@ -10,12 +10,16 @@ import {
 } from "framer-motion";
 import { ReactLenis } from "lenis/react";
 
+import FAQ from "../components/FAQ";
 import CtaContent from "../components/library/CtaContent";
 import GridContent from "../components/library/GridContent";
 import VideoHero from "../components/library/VideoHero";
 
 function Home() {
-	return <PlaceholderHome />;
+	return (
+		<ScrollHome />
+		// <PlaceholderHome />
+	);
 }
 
 export default Home;
@@ -26,14 +30,16 @@ const PlaceholderHome = () => {
 			{/* Hero component */}
 			<VideoHero />
 			{/* Content area */}
+			<CtaContent />
 			<GridContent />
+			<FAQ />
 		</div>
 	);
 };
 
-export const SmoothScrollHero = () => {
+export const ScrollHome = () => {
 	return (
-		<div className="bg-zinc-950">
+		<div className="dark:bg-zinc-950 ">
 			<ReactLenis
 				root
 				options={{
@@ -44,14 +50,15 @@ export const SmoothScrollHero = () => {
 				}}
 			>
 				<Hero />
-				<div className="h-screen">
-					<CtaContent />
-				</div>
+				<CtaContent />
+				<GridContent />
+				<FAQ />
 			</ReactLenis>
 		</div>
 	);
 };
 
+// Scroll Home Components Start
 const SECTION_HEIGHT = 2700;
 
 const Hero = () => {
@@ -64,7 +71,7 @@ const Hero = () => {
 
 			<ParallaxImages />
 
-			<div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b from-zinc-950/0 to-zinc-950" />
+			<div className="absolute bottom-0 left-0 right-0 h-96 bg-gradient-to-b dark:from-zinc-950/0 to-zinc-950" />
 		</div>
 	);
 };
@@ -176,3 +183,4 @@ const ParallaxImg = ({
 		/>
 	);
 };
+// Scroll Home Components End
