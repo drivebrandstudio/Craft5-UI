@@ -4,6 +4,6 @@ export interface ApiRouteType {
     title: string;
     slug: string;
     uri: string;
-    descendants: apiRouteType[];
+    descendants: ApiRouteType[];
     level: number;
 }

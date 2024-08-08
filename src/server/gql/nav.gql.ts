@@ -3,7 +3,7 @@ import { gql } from "graphql-request";
 
 export const NavQuery = gql`
 		{
-    navEntries: entries(section: ["Pages", "News", "Home"]) {
+    navEntries: entries(level:1) {
         level
         slug
         uri
