@@ -225,6 +225,7 @@ function App() {
 Utilize Atomic Design principles. 
 
 ## Lessons Learned
+- If using EmbedAssets plugin, delete `proc_open` from the disabled functions list in runcloud
 
 
 
