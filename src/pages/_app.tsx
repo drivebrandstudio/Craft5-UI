@@ -27,8 +27,8 @@ export default function AppRoot({
 				{/* NAVIGATION COMPONENTS start */}
 				{/* <Nav routes={routes} /> */}
 				{/* <NavBar2 routes={routes} /> */}
-				{/* <NavBar3 /> */}
-				<ResizeNavBar />
+				<NavBar3 />
+				{/* <ResizeNavBar /> */}
 				{/* NAVIGATION COMPONENTS end */}
 
 				{/* SRC > CLIENT > LAYOUTS start */}
