@@ -159,6 +159,8 @@ git push origin main
 - Create the graphql schema and token
 - Fill in the .env file in the server ui project
 - Run `pm2 start npm --name "<give_reasonable_name>" -- start`
+- `pm2 save`
+- `pm2 startup`
 
 ## Environment Variables
 
