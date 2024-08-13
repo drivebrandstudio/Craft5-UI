@@ -1,12 +1,20 @@
 import { gql } from 'graphql-request'
 
+export const HomePathQuery = gql`
+	{
+  	 entries(uri: "__home__") {
+  	  uri
+  	  typeHandle
+  	}
+}
+`
 export const PagePathQuery = gql`
 	{
-		entries(limit: 1000) {
-			uri
-			typeHandle
-		}
+	entries(level: 1) {
+		uri
+		typeHandle
 	}
+}
 `
 
 export const PagesPagesEntryQuery = gql`

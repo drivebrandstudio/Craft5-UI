@@ -7,7 +7,6 @@ import cmsClient from "@/server/cmsClient";
 import getPreviewToken from "@/server/getPreviewToken";
 import { NavQuery } from "@/server/gql/nav.gql";
 import { PagePathQuery, pageQueries } from "@/server/gql/page.gql";
-import writeDataToDisk from "@/server/writeDataToDisk";
 import { gql } from "graphql-request";
 
 import NewsArticle from "../../client/layouts/NewsArticle";
@@ -60,6 +59,10 @@ export const getStaticProps: GetStaticProps = async ({
 	const page = params?.page as string[];
 	const uri = page?.join("/");
 
+	if (!entryType.entry) {
+		return { notFound: true };
+	}
+
 	// if it's preview mode, use the typeHandle passed from the preview api
 	// if we're building/dev mode, find the typeHandle from the data written to file
 	const type = entryType.entry?.typeHandle || "news";
@@ -103,24 +106,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const client = cmsClient();
 	const { entries }: TResponse = await client.request(PagePathQuery);
 
+	console.log("news entries");
+	console.log(entries);
 	const paths = entries
-		.filter(
-			(entry) =>
-				entry.uri &&
-				entry.uri !== "home" &&
-				entry.uri !== "__home__" &&
-				entry.uri.includes("news")
-		)
+		.filter((entry) => !!entry.uri)
 		.map((entry) => ({
-			params: { page: entry.uri.split("/") },
+			params: {
+				page: entry.uri === "__home__" ? ["/"] : entry.uri.split("/"),
+			},
 		}));
 
-	await writeDataToDisk(
-		JSON.stringify(
-			entries.filter((entry) => entry.uri && entry.uri.includes("news"))
-		),
-		"pages.data"
-	);
+	console.log("paths news");
+	console.log(paths.map((path) => path.params.page));
 
 	return {
 		paths,
