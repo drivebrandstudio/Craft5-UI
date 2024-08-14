@@ -56,8 +56,7 @@ React + NextJS Front End, Back End CraftCMS project.
 1.  ```bash
     git push origin main
     ```
-> [!TIP]
-> You can skip to the UI section if you don't care about local stanup.
+    
 10. Remove .example from the .env file
 
 1.  ```bash
@@ -87,6 +86,7 @@ React + NextJS Front End, Back End CraftCMS project.
   - p: letmein
 19. Graphql > schemas > create new > label Private
 1. Graphql > tokens > create new > apply to Private schema and copy the token to notepad (will need later)
+2. Settings > Sites > base_url: set to the URL of your headless site
 
 ### UI
 ```bash
@@ -124,8 +124,7 @@ git commit -m 'First Commit'
 ```bash
 git push origin main
 ```
-> [!TIP]
-> You can skip to the Hosting section if you don't care about local stanup.
+
 - Remove .example from .env
 - Paste in the db URL and CMS token (remove "Authorization: Bearer")
 - NPM install
