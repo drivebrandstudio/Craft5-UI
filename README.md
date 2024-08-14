@@ -87,6 +87,7 @@ React + NextJS Front End, Back End CraftCMS project.
 19. Graphql > schemas > create new > label Private
 1. Graphql > tokens > create new > apply to Private schema and copy the token to notepad (will need later)
 2. Settings > Sites > base_url: set to the URL of your headless site
+3. Utilities > System Report > Requirements - Ensure all the necessary PHP extensions are allowed
 
 ### UI
 ```bash
