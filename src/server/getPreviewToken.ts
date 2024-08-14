@@ -15,10 +15,6 @@ export default function getPreviewToken(
     const p = previewData
     const previewToken = preview && previewData ? p?.token || null : null
 
-    console.log('preview should exist')
-    console.log(preview)
-    console.log(previewData)
-
     return {
         token: previewToken,
         typeHandle: p?.typeHandle || null,
