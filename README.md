@@ -6,13 +6,13 @@
 - PM2 auto-restart if the server crashes
 
 ## Steps 
-- Begin these once the CraftCMS project is running successfully
-- Use this template to create a new repository
-- Remove .example from .env
-- Paste in the db URL and CMS token (remove "Authorization: Bearer")
-- NPM install
-- Use TODOTree or Search for TODO and finish all
-- npm run dev
+1. Begin these once the CraftCMS project is running successfully
+1. Use this template to create a new repository
+1. Remove .example from .env
+1. Paste in the db URL and CMS token (remove "Authorization: Bearer")
+1. NPM install
+1. Use TODOTree or Search for TODO and finish all
+1. npm run dev
 
 ## Hosting
 - Purchase a Digital Ocean droplet
