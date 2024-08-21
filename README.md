@@ -3,8 +3,6 @@
 
 ## Features
 - Light/dark mode toggle
-- Live previews
-- Revalidate Front End data on save in CraftCMS
 - PM2 auto-restart if the server crashes
 
 ## Steps 
