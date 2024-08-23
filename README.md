@@ -1,9 +1,18 @@
 
 # Craft 5 UI setup instructions
 
+### Acknowledgments
+- ShadCN https://ui.shadcn.com/
+- Aceternity https://ui.aceternity.com/
+- Magic UI https://magicui.design/
+- Wind UI https://wind-ui.com/components/
+- If you see your library please put an issue in to be added here, was moving too fast to remember them all :)
+
 ## Features
 - Light/dark mode toggle
-- PM2 auto-restart if the server crashes
+- ShadCN / Aceternity / MagicUI / More starter components
+- Preview endpoint
+- Revalidate endpoint
 
 ## Steps 
 1. Begin these once the CraftCMS project is running successfully
