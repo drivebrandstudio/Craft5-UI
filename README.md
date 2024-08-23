@@ -6,6 +6,10 @@
 - Aceternity https://ui.aceternity.com/
 - Magic UI https://magicui.design/
 - Wind UI https://wind-ui.com/components/
+- Wicked Blocks https://wickedblocks.dev/
+- Hover.dev https://www.hover.dev/components
+- Hyper UI https://www.hyperui.dev/
+- Ever UI https://www.ever-ui.com/
 - If you see your library please put an issue in to be added here, was moving too fast to remember them all :)
 
 ## Features
