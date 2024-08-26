@@ -2,7 +2,7 @@ import React from "react";
 
 const SplitFooter = () => {
 	return (
-		<footer className="bg-white lg:grid lg:grid-cols-5">
+		<footer className="bg-white dark:bg-zinc-800 lg:grid lg:grid-cols-5">
 			<div className="relative block h-32 lg:col-span-2 lg:h-full">
 				<img
 					src="https://images.unsplash.com/photo-1642370324100-324b21fab3a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
@@ -15,20 +15,20 @@ const SplitFooter = () => {
 				<div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
 					<div>
 						<p>
-							<span className="text-xs uppercase tracking-wide text-gray-500">
+							<span className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-300">
 								{" "}
 								Call us{" "}
 							</span>
 
 							<a
 								href="#"
-								className="block text-2xl font-medium text-gray-900 hover:opacity-75 sm:text-3xl"
+								className="block text-2xl font-medium text-gray-500 dark:text-gray-300 hover:opacity-75 sm:text-3xl"
 							>
 								0123456789
 							</a>
 						</p>
 
-						<ul className="mt-8 space-y-1 text-sm text-gray-700">
+						<ul className="mt-8 space-y-1 text-sm text-gray-500 dark:text-gray-300">
 							<li>Monday to Friday: 10am - 5pm</li>
 							<li>Weekend: 10am - 3pm</li>
 						</ul>
@@ -39,7 +39,7 @@ const SplitFooter = () => {
 									href="#"
 									rel="noreferrer"
 									target="_blank"
-									className="text-gray-700 transition hover:opacity-75"
+									className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 								>
 									<span className="sr-only">Facebook</span>
 
@@ -63,7 +63,7 @@ const SplitFooter = () => {
 									href="#"
 									rel="noreferrer"
 									target="_blank"
-									className="text-gray-700 transition hover:opacity-75"
+									className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 								>
 									<span className="sr-only">Instagram</span>
 
@@ -87,7 +87,7 @@ const SplitFooter = () => {
 									href="#"
 									rel="noreferrer"
 									target="_blank"
-									className="text-gray-700 transition hover:opacity-75"
+									className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 								>
 									<span className="sr-only">Twitter</span>
 
@@ -107,7 +107,7 @@ const SplitFooter = () => {
 									href="#"
 									rel="noreferrer"
 									target="_blank"
-									className="text-gray-700 transition hover:opacity-75"
+									className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 								>
 									<span className="sr-only">GitHub</span>
 
@@ -131,7 +131,7 @@ const SplitFooter = () => {
 									href="#"
 									rel="noreferrer"
 									target="_blank"
-									className="text-gray-700 transition hover:opacity-75"
+									className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 								>
 									<span className="sr-only">Dribbble</span>
 
@@ -154,13 +154,15 @@ const SplitFooter = () => {
 
 					<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 						<div>
-							<p className="font-medium text-gray-900">Services</p>
+							<p className="font-medium text-gray-500 dark:text-gray-300">
+								Services
+							</p>
 
 							<ul className="mt-6 space-y-4 text-sm">
 								<li>
 									<a
 										href="#"
-										className="text-gray-700 transition hover:opacity-75"
+										className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 									>
 										{" "}
 										1on1 Coaching{" "}
@@ -170,7 +172,7 @@ const SplitFooter = () => {
 								<li>
 									<a
 										href="#"
-										className="text-gray-700 transition hover:opacity-75"
+										className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 									>
 										{" "}
 										Company Review{" "}
@@ -180,7 +182,7 @@ const SplitFooter = () => {
 								<li>
 									<a
 										href="#"
-										className="text-gray-700 transition hover:opacity-75"
+										className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 									>
 										{" "}
 										Accounts Review{" "}
@@ -190,7 +192,7 @@ const SplitFooter = () => {
 								<li>
 									<a
 										href="#"
-										className="text-gray-700 transition hover:opacity-75"
+										className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 									>
 										{" "}
 										HR Consulting{" "}
@@ -200,7 +202,7 @@ const SplitFooter = () => {
 								<li>
 									<a
 										href="#"
-										className="text-gray-700 transition hover:opacity-75"
+										className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 									>
 										{" "}
 										SEO Optimisation{" "}
@@ -210,13 +212,15 @@ const SplitFooter = () => {
 						</div>
 
 						<div>
-							<p className="font-medium text-gray-900">Company</p>
+							<p className="font-medium text-gray-500 dark:text-gray-300">
+								Company
+							</p>
 
 							<ul className="mt-6 space-y-4 text-sm">
 								<li>
 									<a
 										href="#"
-										className="text-gray-700 transition hover:opacity-75"
+										className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 									>
 										{" "}
 										About{" "}
@@ -226,7 +230,7 @@ const SplitFooter = () => {
 								<li>
 									<a
 										href="#"
-										className="text-gray-700 transition hover:opacity-75"
+										className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 									>
 										{" "}
 										Meet the Team{" "}
@@ -236,7 +240,7 @@ const SplitFooter = () => {
 								<li>
 									<a
 										href="#"
-										className="text-gray-700 transition hover:opacity-75"
+										className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 									>
 										{" "}
 										Accounts Review{" "}
@@ -253,7 +257,7 @@ const SplitFooter = () => {
 							<li>
 								<a
 									href="#"
-									className="text-gray-500 transition hover:opacity-75"
+									className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 								>
 									{" "}
 									Terms & Conditions{" "}
@@ -263,7 +267,7 @@ const SplitFooter = () => {
 							<li>
 								<a
 									href="#"
-									className="text-gray-500 transition hover:opacity-75"
+									className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 								>
 									{" "}
 									Privacy Policy{" "}
@@ -273,7 +277,7 @@ const SplitFooter = () => {
 							<li>
 								<a
 									href="#"
-									className="text-gray-500 transition hover:opacity-75"
+									className="text-gray-500 dark:text-gray-300 transition hover:opacity-75"
 								>
 									{" "}
 									Cookies{" "}
@@ -281,7 +285,7 @@ const SplitFooter = () => {
 							</li>
 						</ul>
 
-						<p className="mt-8 text-xs text-gray-500 sm:mt-0">
+						<p className="mt-8 text-xs text-gray-500 dark:text-gray-300 sm:mt-0">
 							&copy; 2022. Company Name. All rights reserved.
 						</p>
 					</div>

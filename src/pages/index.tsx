@@ -1,21 +1,18 @@
 import React from "react";
 
 import { GetStaticProps } from "next";
-import dynamic from "next/dynamic";
 
 import cmsClient from "@/server/cmsClient";
 import { HomeEntryQuery } from "@/server/gql/home.gql";
-import { NavQuery } from "@/server/gql/nav.gql";
-import { pageQueries } from "@/server/gql/page.gql";
+
+import Home from "@/client/layouts/Home";
 
 export interface IPageProps {
 	[k: string]: any;
 }
 
-const App = dynamic(import("../client/layouts/Home"));
-
 function Index(props: IPageProps): JSX.Element {
-	return <App data={props.data} />;
+	return <Home />;
 }
 
 export default Index;

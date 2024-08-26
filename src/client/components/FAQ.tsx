@@ -58,8 +58,6 @@ const FAQ = () => {
 	);
 };
 
-export default FAQ;
-
 export const Accordion: React.FC<{
 	children: React.ReactNode;
 	className?: string;
@@ -145,3 +143,5 @@ export const Content: React.FC<{
 		</motion.dd>
 	);
 };
+
+export default FAQ;

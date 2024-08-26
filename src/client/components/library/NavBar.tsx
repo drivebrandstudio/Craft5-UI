@@ -506,13 +506,12 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 								: "invisible opacity-0"
 						}`}
 					>
-						{routes
+						{/* {routes
 							?.filter(
 								(route) =>
 									route.level === 1 || route.typeHandle === "home"
 							)
 							?.map((route) => {
-								console.log(route.uri);
 								return !!route.children.length ||
 									route.typeHandle === "newsListing" ? (
 									<li
@@ -557,9 +556,40 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 										</Link>
 									</li>
 								);
-							})}
+							})} */}
+
+						<li role="none" className="flex items-stretch">
+							<Link
+								role="menuitem"
+								aria-haspopup="false"
+								className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
+								href={"/#"}
+							>
+								<span>route 1</span>
+							</Link>
+						</li>
+						<li role="none" className="flex items-stretch">
+							<Link
+								role="menuitem"
+								aria-haspopup="false"
+								className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
+								href={"/#"}
+							>
+								<span>route 2</span>
+							</Link>
+						</li>
+						<li role="none" className="flex items-stretch">
+							<Link
+								role="menuitem"
+								aria-haspopup="false"
+								className="flex items-center gap-2 py-4 transition-colors duration-300 hover:text-emerald-500 focus:text-emerald-600 focus:outline-none focus-visible:outline-none lg:px-8"
+								href={"/#"}
+							>
+								<span>route 3</span>
+							</Link>
+						</li>
 					</ul>
-					<ModeToggle />
+					<ModeToggle className="self-center" />
 				</nav>
 			</div>
 		</header>
@@ -569,7 +599,7 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 export const NavBar3 = () => {
 	return (
 		<nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-3 text-white">
-			<div>logo</div>
+			<div className="text-black dark:text-white">logo</div>
 			<section className="flex gap-2">
 				<button
 					// onClick={() => {

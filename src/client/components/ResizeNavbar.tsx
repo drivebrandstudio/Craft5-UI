@@ -79,12 +79,12 @@ const DesktopNavbar = ({ navItems }: Props) => {
 				</div>
 			</div>
 			<div className="flex space-x-2 items-center">
-				<Button variant="simple" as={Link} href="/register">
+				<Button as={Link} href="/register">
 					Register
 				</Button>
 				<Button>Book a demo</Button>
+				<ModeToggle />
 			</div>
-			<ModeToggle />
 		</motion.div>
 	);
 };
@@ -249,7 +249,7 @@ export function NavBarItem({
 		<Link
 			href={href}
 			className={cn(
-				"flex items-center justify-center  text-sm leading-[110%] px-4 py-2 rounded-md  hover:bg-neutral-800 hover:text-white/80 dark:text-white hover:shadow-[0px_1px_0px_0px_#FFFFFF20_inset] transition duration-200",
+				"flex items-center justify-center  text-sm leading-[110%] px-4 py-2 rounded-md text-white  hover:bg-neutral-800 hover:text-white/80 dark:text-white hover:shadow-[0px_1px_0px_0px_#FFFFFF20_inset] transition duration-200",
 				(active || pathname?.includes(href)) &&
 					"bg-transparent dark:text-white",
 				className

@@ -1,9 +1,9 @@
 import React from "react";
 
-import FAQ from "./FAQ";
-import CtaContent from "./library/CtaContent";
-import GridContent from "./library/GridContent";
-import VideoHero from "./library/VideoHero";
+import FAQ from "../components/FAQ";
+import CtaContent from "../components/library/CtaContent";
+import GridContent from "../components/library/GridContent";
+import VideoHero from "../components/library/VideoHero";
 
 const VideoHome = () => {
 	return (

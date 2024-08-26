@@ -9,9 +9,6 @@ export default function main(
     preview?: string | null,
     token?: string,
 ): GraphQLClient {
-    console.log('cms client')
-    console.log(preview)
-    console.log(token)
     const endpoints = `${process.env.NEXT_PUBLIC_CRAFT_CMS_GRAPHQL_ENDPOINT}api`
 
     const headers: IHeaders = {

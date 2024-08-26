@@ -2,7 +2,7 @@ import React from "react";
 
 const CenteredFooter = () => {
 	return (
-		<footer className="bg-gray-100">
+		<footer className="bg-gray-100 dark:bg-zinc-800">
 			<div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
 				<div className="flex justify-center text-teal-600">
 					<svg
@@ -54,7 +54,7 @@ const CenteredFooter = () => {
 					</svg>
 				</div>
 
-				<p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
+				<p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500 dark:text-gray-300">
 					Lorem ipsum dolor, sit amet consectetur adipisicing elit.
 					Incidunt consequuntur amet culpa cum itaque neque.
 				</p>
@@ -62,7 +62,7 @@ const CenteredFooter = () => {
 				<ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
 					<li>
 						<a
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 							href="#"
 						>
 							{" "}
@@ -72,7 +72,7 @@ const CenteredFooter = () => {
 
 					<li>
 						<a
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 							href="#"
 						>
 							{" "}
@@ -82,7 +82,7 @@ const CenteredFooter = () => {
 
 					<li>
 						<a
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 							href="#"
 						>
 							{" "}
@@ -92,7 +92,7 @@ const CenteredFooter = () => {
 
 					<li>
 						<a
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 							href="#"
 						>
 							{" "}
@@ -102,7 +102,7 @@ const CenteredFooter = () => {
 
 					<li>
 						<a
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 							href="#"
 						>
 							{" "}
@@ -112,7 +112,7 @@ const CenteredFooter = () => {
 
 					<li>
 						<a
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 							href="#"
 						>
 							{" "}
@@ -127,7 +127,7 @@ const CenteredFooter = () => {
 							href="#"
 							rel="noreferrer"
 							target="_blank"
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 						>
 							<span className="sr-only">Facebook</span>
 							<svg
@@ -150,7 +150,7 @@ const CenteredFooter = () => {
 							href="#"
 							rel="noreferrer"
 							target="_blank"
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 						>
 							<span className="sr-only">Instagram</span>
 							<svg
@@ -173,7 +173,7 @@ const CenteredFooter = () => {
 							href="#"
 							rel="noreferrer"
 							target="_blank"
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 						>
 							<span className="sr-only">Twitter</span>
 							<svg
@@ -192,7 +192,7 @@ const CenteredFooter = () => {
 							href="#"
 							rel="noreferrer"
 							target="_blank"
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 						>
 							<span className="sr-only">GitHub</span>
 							<svg
@@ -215,7 +215,7 @@ const CenteredFooter = () => {
 							href="#"
 							rel="noreferrer"
 							target="_blank"
-							className="text-gray-700 transition hover:text-gray-700/75"
+							className="text-gray-500 dark:text-gray-300 transition hover:text-gray-700/75"
 						>
 							<span className="sr-only">Dribbble</span>
 							<svg

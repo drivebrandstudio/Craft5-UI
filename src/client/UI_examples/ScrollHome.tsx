@@ -6,11 +6,11 @@ import {
 	useScroll,
 	useTransform,
 } from "framer-motion";
-import ReactLenis from "lenis";
+import { ReactLenis } from "lenis/dist/lenis-react";
 
-import FAQ from "../FAQ";
-import CtaContent from "./CtaContent";
-import GridContent from "./GridContent";
+import FAQ from "../components/FAQ";
+import CtaContent from "../components/library/CtaContent";
+import GridContent from "../components/library/GridContent";
 
 export const ScrollHome = () => {
 	return (

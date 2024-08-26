@@ -62,7 +62,5 @@ export default function parseSEO(seo: ISeoProps): ISEO {
         advanced: seo?.advanced,
         twitter: seo?.social?.twitter,
         facebook: seo?.social?.facebook,
-
-
     })
 }

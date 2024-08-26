@@ -9,7 +9,7 @@ const GridContent = () => {
 						EXAMPLE CONTENT AREA
 					</h2>
 
-					<p className="mt-4 text-gray-300">
+					<p className="mt-4 text-gray-500 dark:text-gray-300">
 						Lorem ipsum, dolor sit amet consectetur adipisicing elit.
 						Consequuntur aliquam doloribus nesciunt eos fugiat. Vitae
 						aperiam fugit consequuntur saepe laborum.
@@ -38,11 +38,11 @@ const GridContent = () => {
 							/>
 						</svg>
 
-						<h2 className="mt-4 text-xl font-bold text-white">
+						<h2 className="mt-4 text-xl font-bold text-black dark:text-white">
 							Digital campaigns
 						</h2>
 
-						<p className="mt-1 text-sm text-gray-300">
+						<p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
 							ut quo possimus adipisci distinctio alias voluptatum
 							blanditiis laudantium.
@@ -70,11 +70,11 @@ const GridContent = () => {
 							/>
 						</svg>
 
-						<h2 className="mt-4 text-xl font-bold text-white">
+						<h2 className="mt-4 text-xl font-bold text-black dark:text-white">
 							Digital campaigns
 						</h2>
 
-						<p className="mt-1 text-sm text-gray-300">
+						<p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
 							ut quo possimus adipisci distinctio alias voluptatum
 							blanditiis laudantium.
@@ -102,11 +102,11 @@ const GridContent = () => {
 							/>
 						</svg>
 
-						<h2 className="mt-4 text-xl font-bold text-white">
+						<h2 className="mt-4 text-xl font-bold text-black dark:text-white">
 							Digital campaigns
 						</h2>
 
-						<p className="mt-1 text-sm text-gray-300">
+						<p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
 							ut quo possimus adipisci distinctio alias voluptatum
 							blanditiis laudantium.
@@ -134,11 +134,11 @@ const GridContent = () => {
 							/>
 						</svg>
 
-						<h2 className="mt-4 text-xl font-bold text-white">
+						<h2 className="mt-4 text-xl font-bold text-black dark:text-white">
 							Digital campaigns
 						</h2>
 
-						<p className="mt-1 text-sm text-gray-300">
+						<p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
 							ut quo possimus adipisci distinctio alias voluptatum
 							blanditiis laudantium.
@@ -166,11 +166,11 @@ const GridContent = () => {
 							/>
 						</svg>
 
-						<h2 className="mt-4 text-xl font-bold text-white">
+						<h2 className="mt-4 text-xl font-bold text-black dark:text-white">
 							Digital campaigns
 						</h2>
 
-						<p className="mt-1 text-sm text-gray-300">
+						<p className="mt-1 text-sm text-gray-500 dark:text-gray-300">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
 							ut quo possimus adipisci distinctio alias voluptatum
 							blanditiis laudantium.
@@ -198,11 +198,11 @@ const GridContent = () => {
 							/>
 						</svg>
 
-						<h2 className="mt-4 text-xl font-bold text-white">
+						<h2 className="mt-4 text-xl font-bold text-black dark:text-white">
 							Digital campaigns
 						</h2>
 
-						<p className="mt-1 text-sm text-gray-300">
+						<p className="mt-1 text-sm text-gray-500 dark:text-gray-300 dark:text-gray-500">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex
 							ut quo possimus adipisci distinctio alias voluptatum
 							blanditiis laudantium.
