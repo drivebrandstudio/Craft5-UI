@@ -3,6 +3,7 @@ import React from "react";
 import FAQ from "../components/FAQ";
 import CtaContent from "../components/library/CtaContent";
 import GridContent from "../components/library/GridContent";
+import { TextHoverEffect } from "../components/library/TextHover";
 import VideoHero from "../components/library/VideoHero";
 
 const VideoHome = () => {
@@ -14,6 +15,9 @@ const VideoHome = () => {
 			<CtaContent />
 			<GridContent />
 			<FAQ />
+			<div className="h-[40rem] flex items-center justify-center">
+				<TextHoverEffect text="DRIVE" />
+			</div>
 		</main>
 	);
 };
