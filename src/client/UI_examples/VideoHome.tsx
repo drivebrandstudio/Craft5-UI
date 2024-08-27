@@ -7,14 +7,14 @@ import VideoHero from "../components/library/VideoHero";
 
 const VideoHome = () => {
 	return (
-		<div className="dark:text-white dark:bg-zinc-800">
+		<main className="dark:text-white dark:bg-zinc-800">
 			{/* Hero component */}
 			<VideoHero />
 			{/* Content area */}
 			<CtaContent />
 			<GridContent />
 			<FAQ />
-		</div>
+		</main>
 	);
 };
 
