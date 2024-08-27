@@ -19,7 +19,8 @@ const VideoHome = ({ data }) => {
 			<div className="h-[40rem] flex items-center justify-center">
 				<TextHoverEffect text="DRIVE" />
 			</div>
-			<div className="flex justify-center items-center h-[40rem] flex-col px-4">
+			{/* TODO STARTUP: uncomment once home entry has images field values */}
+			{/* <div className="flex justify-center items-center h-[40rem] flex-col px-4">
 				<p className="text-neutral-500 dark:text-neutral-400 text-xl md:text-3xl max-w-3xl  text-left mb-10">
 					Visit
 					<LinkPreview
@@ -43,7 +44,7 @@ const VideoHome = ({ data }) => {
 					</LinkPreview>
 					and I watch
 				</p>
-			</div>
+			</div> */}
 		</main>
 	);
 };
