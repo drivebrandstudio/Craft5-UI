@@ -442,7 +442,7 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 						id="WindUI"
 						aria-label="WindUI logo"
 						aria-current="page"
-						className="flex items-center gap-2 whitespace-nowrap py-3 text-lg focus:outline-none lg:flex-1"
+						className="flex items-center gap-2 whitespace-nowrap py-3 text-lg focus:outline-none"
 						href="javascript:void(0)"
 					>
 						<svg
@@ -588,8 +588,10 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 								<span>route 3</span>
 							</Link>
 						</li>
+						<li className="flex align-center">
+							<ModeToggle className="self-center" />
+						</li>
 					</ul>
-					<ModeToggle className="self-center" />
 				</nav>
 			</div>
 		</header>
