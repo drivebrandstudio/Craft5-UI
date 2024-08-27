@@ -5,7 +5,7 @@ import React from "react";
 const VideoHero = () => {
 	return (
 		<section
-			className="aspect-square md:aspect-video relative rounded-lg
+			className="aspect-square md:aspect-video relative md:rounded-lg
 			flex flex-col items-center 
 			justify-center text-center md:mt-[.5em] md:mx-[7%] mb-[3em]
 			text-white overflow-hidden"
