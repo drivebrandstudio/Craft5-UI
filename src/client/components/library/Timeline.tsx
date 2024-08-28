@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 
+//ui.aceternity.com/components/timeline
+
 interface TimelineEntry {
 	title: string;
 	content: React.ReactNode;

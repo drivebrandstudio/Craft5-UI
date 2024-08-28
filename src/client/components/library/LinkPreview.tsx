@@ -15,6 +15,8 @@ import {
 
 import { cn } from "@/client/utils/cn";
 
+// https://ui.aceternity.com/components/link-preview
+
 type LinkPreviewProps = {
 	children: React.ReactNode;
 	url: string;

@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { motion } from "framer-motion";
 
+// https://ui.aceternity.com/components/text-hover-effect
+
 export const TextHoverEffect = ({
 	text,
 	duration,

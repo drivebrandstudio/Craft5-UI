@@ -8,7 +8,9 @@ import { cn } from "@/client/utils/cn";
 
 import { SparklesCore } from "./Sparkles";
 
-interface CompareProps {
+//ui.aceternity.com/components/compare
+
+https: interface CompareProps {
 	firstImage?: string;
 	secondImage?: string;
 	className?: string;

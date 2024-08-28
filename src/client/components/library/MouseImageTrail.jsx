@@ -4,6 +4,8 @@ import { useAnimate } from "framer-motion";
 
 import { useApiFetch } from "../../utils/api";
 
+// www.hover.dev/components/other#mouse-image-trail
+
 export const MouseImageTrail = ({
 	children,
 	// Will render a new image every X pixels between mouse moves

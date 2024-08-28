@@ -253,6 +253,7 @@ export const HoveredLink = ({ children, ...rest }: any) => {
 	);
 };
 
+// https://ui.aceternity.com/components/navbar-menu
 const NavBar = ({
 	routes,
 	announcement = true,
@@ -424,6 +425,7 @@ const NavBar = ({
 	);
 };
 
+// https://wind-ui.com/components/navbars/
 export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 	const [isToggleOpen, setIsToggleOpen] = useState(false);
 
@@ -598,6 +600,7 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 	);
 };
 
+// https://www.hover.dev/components/heros
 export const NavBar3 = () => {
 	return (
 		<nav className="fixed left-0 right-0 top-0 z-50 flex items-center justify-between px-6 py-3 text-white">
@@ -618,4 +621,5 @@ export const NavBar3 = () => {
 		</nav>
 	);
 };
+
 export default NavBar;

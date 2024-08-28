@@ -6,6 +6,8 @@ import Image from "next/image";
 
 import { cn } from "@/client/utils/cn";
 
+// https://ui.aceternity.com/components/focus-cards
+
 export const Card = React.memo(
 	({
 		card,

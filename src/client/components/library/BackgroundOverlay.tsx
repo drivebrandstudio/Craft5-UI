@@ -4,6 +4,8 @@ import React from "react";
 
 import { cn } from "@/client/utils/cn";
 
+// https://pro.aceternity.com/products/cards
+
 export function CardDemo() {
 	return (
 		<div className="max-w-xs w-full">

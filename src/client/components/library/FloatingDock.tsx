@@ -20,6 +20,8 @@ import { FiMenu } from "react-icons/fi";
 
 import { cn } from "@/client/utils/cn";
 
+// https://ui.aceternity.com/components/floating-dock
+
 export const FloatingDock = ({
 	items,
 	desktopClassName,
