@@ -10,6 +10,8 @@ import { format } from "date-fns";
 import { AnimatePresence, motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 
+// https://pro.aceternity.com/products/blog-content-sections
+
 export function BlogContentWithToc() {
 	return (
 		<div className="mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 md:flex-row md:px-8">
