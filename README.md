@@ -18,6 +18,10 @@
 - Preview endpoint
 - Revalidate endpoint
 
+## Roadmap
+- Add sitemap xml generator (using SEO plugin from CraftCMS)
+- Add SEO (Using SEO pluging from CraftCMS) 
+
 ## Steps 
 1. Begin these once the CraftCMS project is running successfully
 1. Use this template to create a new repository
