@@ -20,7 +20,11 @@
 
 ## Roadmap
 - Add sitemap xml generator (using SEO plugin from CraftCMS)
-- Add SEO (Using SEO pluging from CraftCMS) 
+- Add SEO (Using SEO pluging from CraftCMS)
+- Figure out how to demonstrate an application example w/o having api opinionation (meaning, I want to have a few layouts for people to use as examples to follow for code syntax, but I don't want my CMS field/variable names getting in the way)
+- Clean up tailwind base styles
+- Clean up Next config
+- Rename `/src/server` directory to `/helpers` or something
 
 ## Steps 
 1. Begin these once the CraftCMS project is running successfully
@@ -96,9 +100,10 @@ Utilize Atomic Design principles.
 
 For support, email support@drivebrandstudio.com 
 ## UI_examples (🚧WIP🚧)
+> [!CAUTION]
+> FLASH WARNING when I demonstrate the dark/light mode in each video
 
 https://github.com/user-attachments/assets/f2805740-c5f0-435b-9631-d7ad30f0a8cf
-
 
 https://github.com/user-attachments/assets/859457e9-3a93-4929-a7ff-e2a5510fbd72
 
