@@ -445,7 +445,7 @@ export const NavBar2 = ({ routes }: { routes: ApiRouteType[] }) => {
 						aria-label="WindUI logo"
 						aria-current="page"
 						className="flex items-center gap-2 whitespace-nowrap py-3 text-lg focus:outline-none"
-						href="javascript:void(0)"
+						href="/"
 					>
 						<svg
 							width="300"

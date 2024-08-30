@@ -32,7 +32,6 @@ const filterEmptyValues = (item: any): boolean => item?.length !== 0
 const flattenValues = R.pipe(R.values, R.filter(filterEmptyValues), R.flatten)
 
 export default function parseSEO(seo: ISeoProps): ISEO {
-    console.log('seo')
     // const parsed = R.toPairs(seo).reduce<TSEO>(
     //     (acc, [key, value]) => ({ ...acc, [key]: JSON.parse(value) }),
     //     {} as TSEO,

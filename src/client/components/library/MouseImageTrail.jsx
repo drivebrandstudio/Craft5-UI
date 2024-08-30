@@ -33,7 +33,6 @@ export const MouseImageTrail = ({
 		if (distance >= renderImageBuffer) {
 			lastRenderPosition.current.x = clientX;
 			lastRenderPosition.current.y = clientY;
-			console.log("should render next");
 
 			renderNextImage();
 		}
@@ -60,8 +59,6 @@ export const MouseImageTrail = ({
 		el.style.zIndex = imageRenderCount.current.toString();
 
 		const rotation = Math.random() * rotationRange;
-
-		console.log("render animate");
 
 		animate(
 			selector,

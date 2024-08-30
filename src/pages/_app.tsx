@@ -25,6 +25,7 @@ export default function AppRoot({
 }: AppProps): JSX.Element {
 	const { seo, routes, ...props } = pageProps;
 
+	// TODO STARTUP: Replace these with routes
 	const links = [
 		{
 			title: "Home",

@@ -135,7 +135,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 			params: { page: entry.uri.split("/") },
 		}));
 
-	console.log(paths);
 	return {
 		paths,
 		fallback: true,
