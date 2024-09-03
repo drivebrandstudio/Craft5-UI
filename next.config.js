@@ -27,6 +27,23 @@ const nextConfig = {
 			},
 		],
 	},
+	async redirects() {
+		return [
+			// EXAMPLE REDIRECTS
+			// Basic redirect
+			// {
+			// 	source: "/about",
+			// 	destination: "/",
+			// 	permanent: true,
+			// },
+			// Wildcard path matching
+			// {
+			// 	source: "/blog/:slug",
+			// 	destination: "/news/:slug",
+			// 	permanent: false,
+			// },
+		];
+	},
 };
 
 export default nextConfig;
