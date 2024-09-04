@@ -15,7 +15,6 @@ export interface IPageProps {
 const News = dynamic(import("../../client/layouts/News"));
 
 function Index(props: IPageProps): JSX.Element {
-	console.log(props);
 	return <News />;
 }
 
@@ -28,20 +27,22 @@ export const getStaticProps: GetStaticProps = async ({
 }) => {
 	const client = cmsClient(preview, previewData?.token);
 	const data = await client.request(HomeEntryQuery, {
-		uri: params?.page?.join("/"),
+		uri: params?.page,
 	});
 
 	const seoReq = await client.request(pageQueries.landingPages, {
-		uri: params?.page?.join("/"),
+		uri: params?.page,
 	});
 
 	const nav = await client.request(NavQuery);
+
+	console.log(seoReq);
 
 	return {
 		props: {
 			seo: seoReq.entry?.seo || null,
 			routes: nav.navEntries,
-			data: data.homeEntry,
+			data: data,
 		},
 	};
 };

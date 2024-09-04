@@ -7,12 +7,12 @@ import { ScrollHome } from "../UI_examples/ScrollHome";
 import StandardHero from "../UI_examples/StandardHero";
 import VideoHome from "../UI_examples/VideoHome";
 
-function Home() {
+function Home({ data }) {
 	return (
 		// <ScrollHome />
-		// <VideoHome />
+		<VideoHome data={data} />
 		// <ImageTrailHero />
-		<StandardHero />
+		// <StandardHero data={data} />
 	);
 }
 

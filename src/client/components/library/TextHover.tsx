@@ -41,7 +41,7 @@ export const TextHoverEffect = ({
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 			onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-			className="select-none"
+			className="select-none absolute inset-0 z-0"
 		>
 			<defs>
 				<linearGradient
@@ -101,7 +101,7 @@ export const TextHoverEffect = ({
 			>
 				{text}
 			</text>
-			<motion.text
+			{/* <motion.text
 				x="50%"
 				y="50%"
 				textAnchor="middle"
@@ -119,7 +119,7 @@ export const TextHoverEffect = ({
 				}}
 			>
 				{text}
-			</motion.text>
+			</motion.text> */}
 			<text
 				x="50%"
 				y="50%"

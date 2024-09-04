@@ -2,8 +2,10 @@
 
 import React from "react";
 
-const NewsArticle = () => {
-	return <div>News Article</div>;
+import { BlogContentWithToc } from "../components/library/BlogWithTOC";
+
+const NewsArticle = ({ data }) => {
+	return <BlogContentWithToc blog={data} />;
 };
 
 export default NewsArticle;
