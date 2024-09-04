@@ -21,9 +21,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 	return getServerSideSitemapIndexLegacy(
 		ctx,
-		response.data.navEntries.map(
-			(entry) => process.env.SITEMAP_URL + "/" + entry.uri
-		)
+		response.data.navEntries
+			.filter((entry) => entry.enabled)
+			.map((entry) => process.env.SITEMAP_URL + "/" + entry.uri)
 		// response.data.entries.map((entry) => ({
 		// 	uri: process.env.SITEMAP_URL + "/" + entry.url,
 		// 	lastModified: entry.dateUpdated,

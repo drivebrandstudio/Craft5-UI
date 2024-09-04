@@ -1,6 +1,6 @@
 import { gql } from "graphql-request";
 
-
+// TODO STARTUP: Change section filter to your list of sections
 export const NavQuery = gql`
 {
         navEntries: entries(section: ["blog"]) {
@@ -9,7 +9,8 @@ export const NavQuery = gql`
             typeHandle
             sectionHandle
             title
-           dateUpdated
+            dateUpdated
+            enabled
         }
     }
 `
