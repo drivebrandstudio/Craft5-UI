@@ -4,6 +4,7 @@ import { GetStaticProps } from "next";
 
 import cmsClient from "@/server/cmsClient";
 import { HomeEntryQuery } from "@/server/gql/home.gql";
+import { pageQueries } from "@/server/gql/page.gql";
 
 import Home from "@/client/layouts/Home";
 
@@ -27,15 +28,15 @@ export const getStaticProps: GetStaticProps = async ({
 		uri: "__home__",
 	});
 
-	// const seoReq = await client.request(pageQueries.landingPages, {
-	//   uri: "__home__",
-	// });
+	const seoReq = await client.request(pageQueries.landingPages, {
+		uri: "__home__",
+	});
 
 	// const nav = await client.request(NavQuery);
 
 	return {
 		props: {
-			// seo: seoReq.entry?.seo || null,
+			seo: seoReq.entry?.seo || null,
 			// routes: nav.navEntries,
 			data,
 		},
