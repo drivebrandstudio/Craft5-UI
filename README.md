@@ -17,9 +17,9 @@
 - ShadCN / Aceternity / MagicUI / More starter components
 - Preview endpoint
 - Revalidate endpoint
+- sitemap xml generator
 
 ## Roadmap
-- Add sitemap xml generator (using SEO plugin from CraftCMS)
 - Add SEO (Using SEO pluging from CraftCMS)
 - Figure out how to demonstrate an application example w/o having api opinionation (meaning, I want to have a few layouts for people to use as examples to follow for code syntax, but I don't want my CMS field/variable names getting in the way)
 - Clean up tailwind base styles
