@@ -28,9 +28,6 @@ export const getStaticProps: GetStaticProps = async ({
 	preview,
 	previewData,
 }) => {
-	console.log("params");
-	console.log(params);
-
 	// no params.. go home
 	if (!params || !params?.page) {
 		return {
@@ -102,8 +99,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const client = cmsClient();
 	const { entries }: TResponse = await client.request(pageQueries.pages);
 
-	// console.log("news entries");
-	// console.log(entries);
 	const paths = entries
 		.filter((entry) => !!entry.uri && entry.uri.includes("blog"))
 		.map((entry) => ({
@@ -111,9 +106,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 				page: entry.uri.split("/")[1],
 			},
 		}));
-
-	// console.log("paths news");
-	// console.log(paths);
 
 	return {
 		paths,

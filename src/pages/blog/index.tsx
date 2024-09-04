@@ -36,8 +36,6 @@ export const getStaticProps: GetStaticProps = async ({
 
 	const nav = await client.request(NavQuery);
 
-	console.log(seoReq);
-
 	return {
 		props: {
 			seo: seoReq.entry?.seo || null,
