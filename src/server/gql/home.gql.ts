@@ -1,19 +1,49 @@
 import { gql } from 'graphql-request'
 
+// STARTUP TODO: Once home Entry is built in CMS, fetch fields here
 export const HomeEntryQuery = gql`
 {
-  assets(limit: 15) {
-    url
-  }
-  blogEntries {
-    ... on blog_Entry {
-      summary
-      thumbnail {
-        img
-      }
+  entry(uri: "__home__") {
+    ... on home_Entry {
       title
-      date
+      seo {
+        title
+        description
+        social {
+          twitter {
+            title
+            description
+            image {
+              url
+            }
+          }
+          facebook {
+            title
+            description
+            image {
+              url
+            }
+          }
+        }
+      }
     }
   }
 }
 `
+
+// EXAMPLE QUERY to work with HeroImageTrail
+// {
+//   assets(limit: 15) {
+//     url
+//   }
+//   blogEntries {
+//     ... on blog_Entry {
+//       summary
+//       thumbnail {
+//         img
+//       }
+//       title
+//       date
+//     }
+//   }
+// }
