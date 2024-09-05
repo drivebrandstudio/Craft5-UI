@@ -26,6 +26,7 @@ const nextConfig = {
 				port: "",
 				pathname: "/[filesystem_name]/**",
 			},
+			// TODO Startup: Remove this in production
 			{
 				protocol: "https",
 				hostname: "craft.ddev.site",
