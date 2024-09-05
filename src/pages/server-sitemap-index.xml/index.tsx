@@ -23,9 +23,9 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 		ctx,
 		response.data.navEntries
 			.filter((entry) => entry.enabled)
-			.map((entry) => process.env.SITEMAP_URL + "/" + entry.uri)
+			.map((entry) => process.env.SITEMAP_URL + entry.uri)
 		// response.data.entries.map((entry) => ({
-		// 	uri: process.env.SITEMAP_URL + "/" + entry.url,
+		// 	uri: process.env.SITEMAP_URL  + entry.url,
 		// 	lastModified: entry.dateUpdated,
 		// 	changeFrequency: "weekly",
 		// 	priority: 1,

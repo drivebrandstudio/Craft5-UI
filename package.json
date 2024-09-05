@@ -5,8 +5,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "next dev",
-		"build": " next build && next-sitemap --config next-sitemap.config.cjs ",
-		"start": "next start"
+		"build": " next build",
+		"start": "next start",
+		"postbuild": "next-sitemap --config next-sitemap.config.cjs"
 	},
 	"dependencies": {
 		"@accessible360/accessible-slick": "^1.0.1",

@@ -5,10 +5,13 @@ module.exports = {
 	siteUrl: process.env.SITEMAP_URL,
 	generateRobotsTxt: true,
 	sitemapSize: 7000,
-	exclude: ["/server-sitemap.xml"],
+	generateIndexSitemap: false,
 	robotsTxtOptions: {
-		additionalSitemaps: [
-			"localhost:3000/server-sitemap-index.xml", // TODO STARTUP: Update this url for sitemap
+		policies: [
+			{
+				userAgent: "*",
+				disallow: ["/cpresources", "/vendor", "/.env"],
+			},
 		],
 	},
 };
