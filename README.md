@@ -1,105 +1,92 @@
-# NextJS headless UI for CraftCMS v5
 
-## Run Locally
+##### Last reviewed 8/21/2024
 
-- Remove .example from .env
-- Paste in the db URL and CMS token (remove "Authorization: Bearer")
-- NPM install
-- Use TODOTree or Search for TODO and finish all
-- npm run dev
+# Drive Brand Studio CraftCMS v5 template
+## Requirements
+1. Computer with MINIMUM 8gb RAM, modern OS (so Windows, Linux or Mac) 
+1. NodeJS v18+
+2. Ubuntu v22.04
+3. PHP 8.1+
+4. DDEV
+5. Docker
 
 
-## Cloud Hosting
+## Local Hosting (Dev) 
+1. Add empty .env file to the root of the project (next to .env.example)
+1. Add CRAFT_ENVIRONMENT=dev to the .env
+2. Change web > .htaccess_dev into .htaccess (or prod if you are putting this on your production server)
+1. Configure the project
+     ```shell
+     ddev config
+     ```
+1. Start the DB server
+     ```shell
+     ddev start
+     ```
+5. Install necessary packages
+   ```shell
+   ddev composer install
+   ```
+5. Install craft
+   ```shell
+   ddev --import-db --file=starter.sql.gz
+   ```
+5. Configure craft
+   ```shell
+   ddev craft setup
+   ```
+1. Launch craft
+   ```shell
+   ddev launch
+   ```
+8. In the GraphQL tab:
+    - Select Schemas and in the Private Schema, make sure all checkboxes are checked.
+    - Then, select the Tokens tab and create a new token. Name it something like 'Private' and copy only the token value after `Bearer`.
+11. Create a FileSystem for asset uploads and Assets, but make sure to name the path ANYTHING OTHER THAN ASSETS
 
-- Purchase a Digital Ocean droplet
-- Connect the droplet to RunCloud.io
-- Create a system user and generate a password. `----Store passwords for SSH connection to server later----`
-- Create a webapp for the NextJS project
-  - Utilize a GH repo
+ `(For example, if you have an assets/ folder, that would conflict with the /assets page in the control panel.)`
+          ![image](https://github.com/user-attachments/assets/6f1f6579-442e-4213-8a35-cb1dc88b1707)
+          ![image](https://github.com/user-attachments/assets/509fcf48-d478-4733-90ce-eddabd093cd1)
+
+
+## Cloud Hosting (Staging / Production)
+
+1. Purchase a Digital Ocean droplet
+1. Connect the droplet to RunCloud.io
+1. Create a system user and generate a password. `-----Store passwords for SSH connection to server later-------`
+1. Create a DB user, then a DB in runcloud.
+1. Create a webapp or your CMS
+  - From a GH repo
   - Prefer www version  
-  - Generate and put the deploy key in the cooresponding Github Repo
+  - Generate and put the deploy key in your GH repo
   - Add `:/home/app_user_name` to the end of open_basedir
-- Add to DNS records
+6. Using the Digital Ocean console or SSH (vscode or other) into the DB server
+  - run `gunzip db.sql.gz`
+  - run `mysql -u <db_user_name> -p <db_name> < db.sql`
+7. Add to DNS records
   - if domain 
     - `A_record @ server_ip 600s`
     - `CName www url_name.com. 1hour`
   - if subdomain 
     - `A_record url_name server_ip 1hour`
     - `CName *.url_name url_name.com. 1hour`
-- Add SSL record
-- Add NGINX config
-  - Add a proxy config and uncomment the proxy_redirect and the last 3 lines
-  - Create a custom root definition
-     - `add_header Content-Security-Policy "frame-ancestors 'self' <https://yourbackendwebsite.com>"`; 
-- Fill in the .env file with CMS gql URL and token 
-- On the server, run `pm2 start npm --name "<give_reasonable_name>" -- start`, then `pm2 save`, then `pm2 startup` (If the DO server ever restarts, this forces `npm run start` on boot, bringing your site back to life:D )
+8. Add SSL record
+1. Add .htaccess file to the web directory
+1. Create the graphql schema and token
+1. In CraftCMS, check Utilities > System Report > scroll to Requirements and make sure these are all removed from the list in RunCloud.io Webapp settings.
+
 
 RunCloud sets up webhooks into our github repos, so the deployment of changes should be done through that webhook. When you `git push` to main or merge a PR to main, the production site will auto-magically update.
-
-## Environment Variables
-
-To run this project, you will need to add the following environment variables to your .env file
-
-`NEXT_PUBLIC_CRAFT_CMS_GRAPHQL_ENDPOINT`
-
-`NEXT_PUBLIC_CRAFT_CMS_GRAPHQL_TOKEN`
-
-`MY_SECRET_TOKEN`
-
-`NODE_TLS_REJECT_UNAUTHORIZED`
-
-`SITEMAP_URL`
-
-`ENVIRONMENT`  # dev / staging / production
-
-## Features
-
-- Light/dark mode toggle
-- ShadCN / Aceternity / MagicUI / More starter components
-- Preview endpoint
-- Revalidate endpoint
-- sitemap xml generator
-
-## Authors
-
-[@dancrump1](https://www.github.com/dancrump1)
-## Acknowledgments
-- [ShadCN](https://ui.shadcn.com/)
-- [Aceternity](https://ui.aceternity.com/)
-- [Magic UI](https://magicui.design/)
-- [Wind UI](https://wind-ui.com/components/)
-- [Wicked Blocks](https://wickedblocks.dev/)
-- [Hover.dev](https://www.hover.dev/components)
-- [Hyper UI](https://www.hyperui.dev/)
-- [Ever UI](https://www.ever-ui.com/)
-- If you see your library please put an issue in to be added here, was moving too fast to remember them all :)
-## Tech Stack
-
-*Client:* React v18+, TailwindCSS, Framer Motion
-
-*UI Server:* Node v18+, NextJS, NginX
-
-*DB Server:* CraftCMS v5, NginX, Apache
-
-## Support
-
-For support, email support@drivebrandstudio.com 
-## Roadmap
-- Add SEO (Using SEO pluging from CraftCMS)
-- Figure out how to demonstrate an application example w/o having api opinionation (meaning, I want to have a few layouts for people to use as examples to follow for code syntax, but I don't want my CMS field/variable names getting in the way)
-- Clean up tailwind base styles
-- Clean up Next config
-- Rename `/src/server` directory to `/helpers` or something
-## UI_examples (🚧WIP🚧)
-> [!CAUTION]
-> FLASH WARNING when I demonstrate the dark/light mode in each video
-
-https://github.com/user-attachments/assets/f2805740-c5f0-435b-9631-d7ad30f0a8cf
-
-https://github.com/user-attachments/assets/859457e9-3a93-4929-a7ff-e2a5510fbd72
-
-https://github.com/user-attachments/assets/5214eb78-a1ff-451f-89ca-d7069f1b7c9c
-
-https://github.com/user-attachments/assets/30656964-2cac-489b-8ebc-cc7ead9004f3
-
-
+### Acknowledgments
+- [CreateSean](https://github.com/CreateSean/craft-starter)
+### Features
+- Live preview
+- Revalidate Front End data on save of Entries / Categories / Globals
+- SEO optimization
+### Contributor & Developer Resources & Guides
+   - Docker 🐳 — [Docker Installation](https://ddev.readthedocs.io/en/latest/users/install/docker-installation/)
+   - DDEV 🤓 — [DDEV Installation](https://ddev.readthedocs.io/en/latest/users/install/ddev-installation/#wsl2-docker-desktop-install-script)
+   - Composer 🎼 — [Composer](https://getcomposer.org/doc/)
+   - CraftCMS 📝 — [CraftCMS](https://craftcms.com/docs/)
+   - .env 🦺 — [.env](https://www.dotenv.org/docs)
+   - Node V18+, I recommend using NVM to install and manage — [NVM](https://github.com/nvm-sh/nvm)
