@@ -13,15 +13,12 @@
 
 - Purchase a Digital Ocean droplet
 - Connect the droplet to RunCloud.io
-- Create 2 system users and generate a password. Store passwords for SSH connection
-- Create a DB user, then a DB in runcloud.
-- Create 2 webapps, one for the ui and one for the db
+- Create a system user and generate a password. `----Store passwords for SSH connection to server later----`
+- Create a webapp for the NextJS project
+  - Utilize a GH repo
   - Prefer www version  
-  - Put the deploy keys in each runcloud project
+  - Generate and put the deploy key in the cooresponding Github Repo
   - Add `:/home/app_user_name` to the end of open_basedir
-- Using the Digital Ocean console or SSH (vscode or other) into the DB server
-  - run `gunzip db.sql.gz`
-  - run `mysql -u <db_user_name> -p <db_name> < db.sql`
 - Add to DNS records
   - if domain 
     - `A_record @ server_ip 600s`
@@ -30,17 +27,12 @@
     - `A_record url_name server_ip 1hour`
     - `CName *.url_name url_name.com. 1hour`
 - Add SSL record
-- Add .htaccess file DB project
-- Add NGINX config to server ui runcloud webapp settings
+- Add NGINX config
   - Add a proxy config and uncomment the proxy_redirect and the last 3 lines
   - Create a custom root definition
      - `add_header Content-Security-Policy "frame-ancestors 'self' <https://yourbackendwebsite.com>"`; 
-- Create the graphql schema and token
-- In CraftCMS, check Utilities > System Report > scroll to Requirements and make sure these are all removed from the list in RunCloud.io Webapp settings.
-- Fill in the .env file in the ui project
-- Run this in the UI project `pm2 start npm --name "<give_reasonable_name>" -- start`
-- Run this in the UI project `pm2 save`
-- Run this in the UI project `pm2 startup`
+- Fill in the .env file with CMS gql URL and token 
+- On the server, run `pm2 start npm --name "<give_reasonable_name>" -- start`, then `pm2 save`, then `pm2 startup` (If the DO server ever restarts, this forces `npm run start` on boot, bringing your site back to life:D )
 
 RunCloud sets up webhooks into our github repos, so the deployment of changes should be done through that webhook. When you `git push` to main or merge a PR to main, the production site will auto-magically update.
 
