@@ -1,41 +1,16 @@
+# NextJS headless UI for CraftCMS v5
 
-# Craft 5 UI setup instructions
+## Run Locally
 
-### Acknowledgments
-- ShadCN https://ui.shadcn.com/
-- Aceternity https://ui.aceternity.com/
-- Magic UI https://magicui.design/
-- Wind UI https://wind-ui.com/components/
-- Wicked Blocks https://wickedblocks.dev/
-- Hover.dev https://www.hover.dev/components
-- Hyper UI https://www.hyperui.dev/
-- Ever UI https://www.ever-ui.com/
-- If you see your library please put an issue in to be added here, was moving too fast to remember them all :)
+- Remove .example from .env
+- Paste in the db URL and CMS token (remove "Authorization: Bearer")
+- NPM install
+- Use TODOTree or Search for TODO and finish all
+- npm run dev
 
-## Features
-- Light/dark mode toggle
-- ShadCN / Aceternity / MagicUI / More starter components
-- Preview endpoint
-- Revalidate endpoint
-- sitemap xml generator
 
-## Roadmap
-- Add SEO (Using SEO pluging from CraftCMS)
-- Figure out how to demonstrate an application example w/o having api opinionation (meaning, I want to have a few layouts for people to use as examples to follow for code syntax, but I don't want my CMS field/variable names getting in the way)
-- Clean up tailwind base styles
-- Clean up Next config
-- Rename `/src/server` directory to `/helpers` or something
+## Cloud Hosting
 
-## Steps 
-1. Begin these once the CraftCMS project is running successfully
-1. Use this template to create a new repository
-1. Remove .example from .env
-1. Paste in the db URL and CMS token (remove "Authorization: Bearer")
-1. NPM install
-1. Use TODOTree or Search for TODO and finish all
-1. npm run dev
-
-## Hosting
 - Purchase a Digital Ocean droplet
 - Connect the droplet to RunCloud.io
 - Create 2 system users and generate a password. Store passwords for SSH connection
@@ -67,27 +42,45 @@
 - Run this in the UI project `pm2 save`
 - Run this in the UI project `pm2 startup`
 
+RunCloud sets up webhooks into our github repos, so the deployment of changes should be done through that webhook. When you `git push` to main or merge a PR to main, the production site will auto-magically update.
+
 ## Environment Variables
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`CRAFT_CMS_GRAPHQL_ENDPOINT`
-`CRAFT_CMS_GRAPHQL_TOKEN`
+`NEXT_PUBLIC_CRAFT_CMS_GRAPHQL_ENDPOINT`
+
+`NEXT_PUBLIC_CRAFT_CMS_GRAPHQL_TOKEN`
+
 `MY_SECRET_TOKEN`
 
-## Deployment
+`NODE_TLS_REJECT_UNAUTHORIZED`
 
-RunCloud sets up webhooks into our github repos, so the deployment of changes should be done through that webhook. When you `git push` to main or merge a PR to main, the production site will auto-magically update.
+`SITEMAP_URL`
 
-## Contributing
+`ENVIRONMENT`  # dev / staging / production
 
-Utilize Atomic Design principles. 
+## Features
 
+- Light/dark mode toggle
+- ShadCN / Aceternity / MagicUI / More starter components
+- Preview endpoint
+- Revalidate endpoint
+- sitemap xml generator
 
 ## Authors
 
 [@dancrump1](https://www.github.com/dancrump1)
-
+## Acknowledgments
+- [ShadCN](https://ui.shadcn.com/)
+- [Aceternity](https://ui.aceternity.com/)
+- [Magic UI](https://magicui.design/)
+- [Wind UI](https://wind-ui.com/components/)
+- [Wicked Blocks](https://wickedblocks.dev/)
+- [Hover.dev](https://www.hover.dev/components)
+- [Hyper UI](https://www.hyperui.dev/)
+- [Ever UI](https://www.ever-ui.com/)
+- If you see your library please put an issue in to be added here, was moving too fast to remember them all :)
 ## Tech Stack
 
 *Client:* React v18+, TailwindCSS, Framer Motion
@@ -99,6 +92,12 @@ Utilize Atomic Design principles.
 ## Support
 
 For support, email support@drivebrandstudio.com 
+## Roadmap
+- Add SEO (Using SEO pluging from CraftCMS)
+- Figure out how to demonstrate an application example w/o having api opinionation (meaning, I want to have a few layouts for people to use as examples to follow for code syntax, but I don't want my CMS field/variable names getting in the way)
+- Clean up tailwind base styles
+- Clean up Next config
+- Rename `/src/server` directory to `/helpers` or something
 ## UI_examples (🚧WIP🚧)
 > [!CAUTION]
 > FLASH WARNING when I demonstrate the dark/light mode in each video
