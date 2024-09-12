@@ -13,10 +13,10 @@ const VideoHero = () => {
 			<div className="video-docker absolute inset-0 -mx-[40%]">
 				<iframe
 					className="w-full h-full"
-					src="https://www.youtube.com/embed/jJN3amHlaKQ?playsinline=1&autoplay=1&loop=1&rel=0&showinfo=0&mute=1&controls=0&enablejsapi=1&iv_load_policy=3&origin=https%3A%2F%2Fwww.settlersgreen.com&widgetid=1"
-					autoPlay
-					muted
-					loop
+					src="https://www.youtube.com/embed/jJN3amHlaKQ?feature=oembed&loop=1&playsinline=1&autoplay=1&mute=1&controls=0&enablejsapi=0&iv_load_policy=3"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+					referrerPolicy="strict-origin-when-cross-origin"
+					allowFullScreen
 				></iframe>
 			</div>
 			<div className="video-content space-y-2 z-10">
