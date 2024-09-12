@@ -11,7 +11,7 @@ function Home({ data }) {
 	return (
 		// <ScrollHome />
 		<VideoHome data={data} />
-		// <ImageTrailHero />
+		// <ImageTrailHero data={data} />
 		// <StandardHero data={data} />
 	);
 }

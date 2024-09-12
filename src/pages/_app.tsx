@@ -2,6 +2,8 @@ import React from "react";
 
 import type { AppProps } from "next/app";
 
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import { ThemeProvider } from "@/client/components/atoms/theme-provider";
 import CenteredFooter from "@/client/components/CenteredFooter";
 import NavBar, { NavBar2, NavBar3 } from "@/client/components/library/NavBar";
@@ -111,6 +113,8 @@ export default function AppRoot({
 				{/* <SplitFooter /> */}
 				{/* FOOTER COMPONENTS end */}
 			</ThemeProvider>
+			{/* TODO Startup: Enable this for production site */}
+			{/* <GoogleAnalytics gaId="" /> */}
 		</>
 	);
 }
