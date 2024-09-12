@@ -13,7 +13,7 @@ export interface IPageProps {
 }
 
 function Index(props: IPageProps): JSX.Element {
-	return <Home />;
+	return <Home data={props.data} />;
 }
 
 export default Index;
