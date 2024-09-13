@@ -1,5 +1,5 @@
 export interface NavQueryType {
-    entries: ApiRouteType[]
+    navEntries: { entries: ApiRouteType[] }
 }
 
 export interface ApiRouteType {
