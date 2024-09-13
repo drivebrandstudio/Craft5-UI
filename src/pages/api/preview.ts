@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import cmsClient from '@/server/cmsClient'
+import cmsClient from '@/helpers/cmsClient'
 import { HomeEntryQuery } from '@/server/gql/home.gql'
 import { gql } from 'graphql-request'
 

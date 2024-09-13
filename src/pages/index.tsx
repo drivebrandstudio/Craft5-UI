@@ -2,7 +2,7 @@ import React from "react";
 
 import { GetStaticProps } from "next";
 
-import cmsClient from "@/server/cmsClient";
+import cmsClient from "@/helpers/cmsClient";
 import { HomeEntryQuery } from "@/server/gql/home.gql";
 import { pageQueries } from "@/server/gql/page.gql";
 

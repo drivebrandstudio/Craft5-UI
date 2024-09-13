@@ -3,7 +3,7 @@ import React from "react";
 import { GetStaticProps } from "next";
 import dynamic from "next/dynamic";
 
-import cmsClient from "@/server/cmsClient";
+import cmsClient from "@/helpers/cmsClient";
 import { HomeEntryQuery } from "@/server/gql/home.gql";
 import { NavQuery } from "@/server/gql/nav.gql";
 import { pageQueries } from "@/server/gql/page.gql";

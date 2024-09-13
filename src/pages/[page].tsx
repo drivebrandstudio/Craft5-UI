@@ -3,7 +3,7 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
-import cmsClient from "@/server/cmsClient";
+import cmsClient from "@/helpers/cmsClient";
 import { NavQuery } from "@/server/gql/nav.gql";
 import { gql } from "graphql-request";
 
