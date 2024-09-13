@@ -1,17 +1,13 @@
 export interface NavQueryType {
-    entries: {
-        level: number;
-        slug: string;
-        uri: string;
-        typeHandle: string;
-        sectionHandle: string;
-        title: string;
-        children: {
-            slug: string;
-            uri: string;
-            typeHandle: string;
-            sectionHandle: string;
-            title: string;
-        }
-    }
+    entries: ApiRouteType[]
+}
+
+export interface ApiRouteType {
+    sectionHandle: string;
+    typeHandle: string;
+    title: string;
+    slug: string;
+    uri: string;
+    descendants: ApiRouteType[];
+    level: number;
 }

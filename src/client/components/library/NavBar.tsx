@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 import { cn } from "@/client/utils/cn";
 
-import { ApiRouteType } from "../../../gql/types/navItems";
+import { ApiRouteType } from "@/gql/types/nav";
 import { Button } from "../atoms/Button";
 import {
 	Drawer,
