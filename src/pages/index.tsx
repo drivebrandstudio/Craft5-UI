@@ -3,8 +3,8 @@ import React from "react";
 import { GetStaticProps } from "next";
 
 import cmsClient from "@/helpers/cmsClient";
-import { HomeEntryQuery } from "@/server/gql/home.gql";
-import { pageQueries } from "@/server/gql/page.gql";
+import { HomeEntryQuery } from "@/gql/home.gql";
+import { pageQueries } from "@/gql/page.gql";
 
 import Home from "@/client/layouts/Home";
 

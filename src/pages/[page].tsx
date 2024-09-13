@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 import cmsClient from "@/helpers/cmsClient";
-import { NavQuery } from "@/server/gql/nav.gql";
+import { NavQuery } from "@/gql/nav.gql";
 import { gql } from "graphql-request";
 
 import Home from "@/client/layouts/Home";
@@ -15,7 +15,7 @@ import {
 	HomePathQuery,
 	PagePathQuery,
 	pageQueries,
-} from "../server/gql/page.gql";
+} from "@/gql/page.gql";
 
 export interface IPageProps {
 	type: "post" | "pagination";

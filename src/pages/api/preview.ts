@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import cmsClient from '@/helpers/cmsClient'
-import { HomeEntryQuery } from '@/server/gql/home.gql'
+import { HomeEntryQuery } from '@/gql/home.gql'
 import { gql } from 'graphql-request'
 
 export default async function handler(

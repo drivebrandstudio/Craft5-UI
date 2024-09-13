@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 
 import cmsClient from "@/helpers/cmsClient";
 import getPreviewToken from "@/helpers/getPreviewToken";
-import { NavQuery } from "@/server/gql/nav.gql";
-import { pageQueries } from "@/server/gql/page.gql";
+import { NavQuery } from "@/gql/nav.gql";
+import { pageQueries } from "@/gql/page.gql";
 import { gql } from "graphql-request";
 
 import NewsArticle from "../../client/layouts/NewsArticle";

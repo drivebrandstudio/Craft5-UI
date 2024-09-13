@@ -1,7 +1,7 @@
 // pages/server-sitemap-index.xml/index.tsx
 import { GetServerSideProps } from "next";
 
-import { NavQuery } from "@/server/gql/nav.gql";
+import { NavQuery } from "@/gql/nav.gql";
 import { getServerSideSitemapIndexLegacy } from "next-sitemap";
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
