@@ -10,7 +10,7 @@ import { gql } from "graphql-request";
 import Home from "@/client/layouts/Home";
 import InsidePage from "@/client/layouts/InsidePage";
 
-import getPreviewToken from "../server/getPreviewToken";
+import getPreviewToken from "@/helpers/getPreviewToken";
 import {
 	HomePathQuery,
 	PagePathQuery,

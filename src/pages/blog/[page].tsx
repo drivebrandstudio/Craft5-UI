@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
 import cmsClient from "@/helpers/cmsClient";
-import getPreviewToken from "@/server/getPreviewToken";
+import getPreviewToken from "@/helpers/getPreviewToken";
 import { NavQuery } from "@/server/gql/nav.gql";
 import { pageQueries } from "@/server/gql/page.gql";
 import { gql } from "graphql-request";
