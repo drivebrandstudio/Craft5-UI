@@ -68,6 +68,12 @@ For support, email support@drivebrandstudio.com
 - Clean up tailwind base styles
 - Clean up Next config
 - Rename `/src/server` directory to `/helpers` or something
+
+## 6 Minute Setup video
+Sorry for hte poor quality. Max upload is 10MB for video. 
+https://github.com/user-attachments/assets/2e057e20-4c94-4751-9050-933409f056fd
+
+
 ## UI_examples (🚧WIP🚧)
 > [!CAUTION]
 > FLASH WARNING when I demonstrate the dark/light mode in each video
